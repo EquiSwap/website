@@ -1,0 +1,43 @@
+# Cinnamon project settings go here.
+[framework]
+    # Framework Core Settings.
+    [framework.core]
+        # Whether or not the app is in development mode.
+        # This is overridden by the NODE_ENV environment variable, if it is set.
+        # Refer to the documentation for more information.
+        development_mode = true
+
+    # Framework App Settings.
+    [framework.app]
+        # The app's identifier, used in logging messages.
+        name = "group02-server"
+
+    # Framework HTTP Settings.
+    # HTTPS is not built into the framework. Cinnamon applications are intended to be reverse-proxied by web servers
+    # such as nginx or Apache.
+    [framework.http]
+        host = "0.0.0.0"
+        port = 8357
+
+        # Whether HTTP requests should be logged by the framework.
+        # Ignored for HTTP status codes >= 500 (meaning server errors are always logged).
+        enable_logging = false
+
+    # Framework Database Settings.
+    # Optional. If not specified, the database module will not be initialized. If it is specified, it must contain
+    # the 'type', 'database' and either 'clientUrl' (mongo) or 'host' and 'port' (non-mongo) properties.
+    [framework.database]
+        enabled = true
+        type = "postgresql"
+        # database = "cinnamon-example"
+        # clientUrl = "mongodb://localhost:27017/cinnamon-example"
+
+    # Framework Directory Structure Settings.
+    # Controllers are automatically loaded from the controllers directory specified in this section – and likewise
+    # with models.
+    [framework.structure]
+        controllers = "src/controllers/"
+        models = "src/models/"
+
+# Your app-specific settings go here.
+[app]
