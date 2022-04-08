@@ -2,11 +2,8 @@
     <div>
         <SignInCard />
         <div class="left">
-            <Icon />
             <TextField />
-        </div>
-        <div class="icon-right">
-            <Icon />
+            <TextField />
         </div>
     </div>
 </template>

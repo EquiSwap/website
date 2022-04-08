@@ -5,9 +5,6 @@
             <Icon />
             <TextField />
         </div>
-        <div class="icon-right">
-            <Icon />
-        </div>
     </div>
 </template>
 

@@ -1,5 +1,10 @@
+// ement.style {
+//     display: flex;
+// }
+
 .container {
-    position: absolute;
+    position: relative;
+    display: flex;
     width: 1182px;
     height: 745px;
     left: 369px;
@@ -11,17 +16,42 @@
 }
 
 .left {
-    position: absolute;
-    left: 0%;
+    width: 50%;
+    display: inline-block;
 }
 
+// img {
+//     border-style: solid;
+//     display: block;
+//     // vertical-align: middle;
+//     max-width: 100%;
+//     height: auto;
+//     width: 100%;
+// }
+
 .right {
+    position: relative;
+    right: -44%;
+}
+
+.icon-left {
+    top: -9%;
+    left: -25%;
+    width: 100%;
     position: absolute;
-    right: 0%;
 }
 
 .icon-right {
     position: absolute;
-    right: 15%;
-    top: 25%;
+    width: 100%;
+    right: 0%;
+    top: 15%;
+}
+
+.text-field {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: auto;
+    margin-top: -44%;
 }
