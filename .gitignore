@@ -128,3 +128,5 @@ Temporary Items
 
 # Nuxt generate
 dist
+
+postgres-data/

@@ -27,8 +27,8 @@
     # Optional. If not specified, the database module will not be initialized. If it is specified, it must contain
     # the 'type', 'database' and either 'clientUrl' (mongo) or 'host' and 'port' (non-mongo) properties.
     [framework.database]
-        enabled = false
-        # type = "mongo"
+        enabled = true
+        type = "postgresql"
         # database = "cinnamon-example"
         # clientUrl = "mongodb://localhost:27017/cinnamon-example"
 
