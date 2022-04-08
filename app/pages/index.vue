@@ -2,6 +2,9 @@
 <div>
   <div>
     <Button />
+    <div>
+      <ProductCard />
+    </div>
   </div>
 </div>
 </template>
