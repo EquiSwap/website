@@ -1,0 +1,27 @@
+.container {
+    position: absolute;
+    width: 1182px;
+    height: 745px;
+    left: 369px;
+    top: 205px;
+
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.left {
+    position: absolute;
+    left: 0%;
+}
+
+.right {
+    position: absolute;
+    right: 0%;
+}
+
+.icon-right {
+    position: absolute;
+    right: 15%;
+    top: 25%;
+}
