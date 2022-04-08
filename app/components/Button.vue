@@ -12,8 +12,8 @@
 
 <style lang ="scss" scoped>
 
-$green: #2ecc71;
-$darkGreen: #97D45A;
+$green: #9bda5d;
+$darkGreen: #8bc254;
 $red: #e74c3c;
 $blue: #3498db;
 $yellow: #f1c40f;
@@ -25,7 +25,6 @@ $turquoise: #1abc9c;
     appearance: none;
     background-color: $green;
     border-radius: 0.6em;
-    color: $red;
     cursor: pointer;
     display: flex;
     align-self: center;
