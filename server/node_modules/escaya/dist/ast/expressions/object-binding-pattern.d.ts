@@ -1,0 +1,9 @@
+import { BindingRestProperty } from './binding-rest-property';
+import { BindingIdentifier } from './binding-identifier';
+import { PropertyName } from './property-name';
+import { Node } from '../node';
+export interface ObjectBindingPattern extends Node {
+    readonly properties: (PropertyName | BindingRestProperty | BindingIdentifier)[];
+}
+export declare function createObjectBindingPattern(properties: (PropertyName | BindingRestProperty | BindingIdentifier)[]): ObjectBindingPattern;
+//# sourceMappingURL=object-binding-pattern.d.ts.map

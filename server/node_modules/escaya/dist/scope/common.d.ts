@@ -1,0 +1,16 @@
+export declare const enum ScopeKind {
+    None = 0,
+    ForStatement = 1,
+    Block = 2,
+    CatchStatement = 4,
+    SwitchStatement = 8,
+    ArgList = 16,
+    TryStatement = 32,
+    CatchBlock = 64,
+    FunctionBody = 128,
+    FunctionRoot = 256,
+    FunctionParams = 512,
+    ArrowParams = 1024,
+    CatchIdentifier = 2048
+}
+//# sourceMappingURL=common.d.ts.map

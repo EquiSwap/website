@@ -1,0 +1,9 @@
+import { Expression } from '.';
+import { Node } from '../node';
+export declare type UnaryOperator = '+' | '-' | '!' | '~' | 'delete' | 'void' | 'typeof';
+export interface UnaryExpression extends Node {
+    readonly operator: UnaryOperator;
+    readonly operand: Expression;
+}
+export declare function createUnaryExpression(operator: UnaryOperator, operand: Expression): UnaryExpression;
+//# sourceMappingURL=unary-expr.d.ts.map

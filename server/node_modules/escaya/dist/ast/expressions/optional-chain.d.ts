@@ -1,0 +1,8 @@
+import { IdentifierName } from './identifiername';
+import { Expression } from './';
+import { Node } from '../node';
+export interface OptionalChain extends Node {
+    readonly chain: Expression | Expression[] | IdentifierName | null;
+}
+export declare function createOptionalChain(chain: Expression | Expression[] | IdentifierName | null): OptionalChain;
+//# sourceMappingURL=optional-chain.d.ts.map

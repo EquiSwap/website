@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '../expressions/index';
+export interface ThrowStatement extends Node {
+    readonly expression: Expression;
+}
+export declare function createThrowStatement(expression: Expression): ThrowStatement;
+//# sourceMappingURL=throw-stmt.d.ts.map

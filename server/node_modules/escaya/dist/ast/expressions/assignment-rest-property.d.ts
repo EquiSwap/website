@@ -1,0 +1,10 @@
+import { Node } from '../node';
+import { Expression } from '.';
+import { AssignmentElement } from './assignment-element';
+import { ArrayAssignmentPattern } from './array-assignment-pattern';
+import { ObjectAssignmentPattern } from './object-assignment-pattern';
+export interface AssignmentRestProperty extends Node {
+    readonly argument: ArrayAssignmentPattern | ObjectAssignmentPattern | AssignmentElement | Expression;
+}
+export declare function createAssignmentRestProperty(argument: ArrayAssignmentPattern | ObjectAssignmentPattern | AssignmentElement | Expression): AssignmentRestProperty;
+//# sourceMappingURL=assignment-rest-property.d.ts.map

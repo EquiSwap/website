@@ -1,0 +1,9 @@
+import { Node } from '../node';
+import { Expression } from '../expressions';
+import { FunctionDeclaration } from '../declarations/function-declaration';
+import { ClassDeclaration } from '../declarations/class-declaration';
+export interface ExportDefault extends Node {
+    readonly declaration: FunctionDeclaration | ClassDeclaration | Expression;
+}
+export declare function createExportDefault(declaration: FunctionDeclaration | ClassDeclaration | Expression): ExportDefault;
+//# sourceMappingURL=export-default.d.ts.map

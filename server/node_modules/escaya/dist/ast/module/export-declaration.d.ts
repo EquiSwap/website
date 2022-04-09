@@ -1,0 +1,21 @@
+import { Node } from '../node';
+import { StringLiteral } from '../expressions/string-literal';
+import { ExportSpecifier } from './export-specifier';
+import { Statement } from '../statements';
+import { AssignmentExpression } from '../expressions/assignment-expr';
+import { VariableStatement } from '../statements/variable-stmt';
+import { LexicalDeclaration } from '../declarations/lexical-declaration';
+import { FunctionDeclaration } from '../declarations/function-declaration';
+import { ClassDeclaration } from '../declarations/class-declaration';
+import { ExportFromClause } from './export-from-clause';
+export declare type ExportDeclarations = AssignmentExpression | VariableStatement | LexicalDeclaration | FunctionDeclaration | ClassDeclaration | Statement;
+export interface ExportDeclaration extends Node {
+    readonly declaration: ExportDeclarations | null;
+    readonly namedExports: ExportSpecifier[];
+    readonly fromClause: StringLiteral | null;
+    readonly exportFromClause: ExportFromClause | null;
+    readonly exportedNames?: string[];
+    readonly boundNames?: string[];
+}
+export declare function createExportDeclaration(declaration: ExportDeclarations | null, namedExports: ExportSpecifier[], fromClause: StringLiteral | null, exportFromClause: ExportFromClause | null, cst: boolean, exportedNames?: string[], boundNames?: string[]): ExportDeclaration;
+//# sourceMappingURL=export-declaration.d.ts.map

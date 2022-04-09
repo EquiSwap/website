@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type ThisExpression = Node;
+export declare function createThisExpression(): ThisExpression;
+//# sourceMappingURL=this-expr.d.ts.map

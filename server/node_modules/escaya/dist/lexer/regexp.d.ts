@@ -1,0 +1,4 @@
+import { Token } from '../ast/token';
+import { Context, ParserState } from '../common';
+export declare function scanRegExp(state: ParserState, context: Context): Token;
+//# sourceMappingURL=regexp.d.ts.map

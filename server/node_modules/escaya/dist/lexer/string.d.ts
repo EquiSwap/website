@@ -1,0 +1,6 @@
+import { Token } from './../ast/token';
+import { Context, ParserState } from '../common';
+export declare const oneCharASCII: (string | number)[];
+export declare function scanString(state: ParserState, context: Context, quote: number): Token;
+export declare function scanStringEscape(state: ParserState, context: Context, source: string, cp: number): string;
+//# sourceMappingURL=string.d.ts.map

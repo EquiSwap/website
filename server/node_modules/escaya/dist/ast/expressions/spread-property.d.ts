@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '.';
+export interface SpreadProperty extends Node {
+    readonly argument: Expression;
+}
+export declare function createSpreadProperty(argument: Expression): SpreadProperty;
+//# sourceMappingURL=spread-property.d.ts.map

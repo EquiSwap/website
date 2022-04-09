@@ -1,0 +1,13 @@
+import { BindingIdentifier } from '../expressions/binding-identifier';
+import { FunctionBody } from '../expressions/function-body';
+import { Node } from '../node';
+import { Parameter } from '../expressions';
+export interface FunctionDeclaration extends Node {
+    readonly name: BindingIdentifier | null;
+    readonly generator: boolean;
+    readonly async: boolean;
+    readonly params: Parameter[];
+    readonly contents: FunctionBody;
+}
+export declare function createFunctionDeclaration(name: BindingIdentifier | null, generator: boolean, async: boolean, params: Parameter[], contents: FunctionBody): FunctionDeclaration;
+//# sourceMappingURL=function-declaration.d.ts.map

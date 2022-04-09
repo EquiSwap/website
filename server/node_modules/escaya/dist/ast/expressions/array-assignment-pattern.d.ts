@@ -1,0 +1,10 @@
+import { Node } from '../node';
+import { AssignmentElement } from './assignment-element';
+import { AssignmentRestElement } from './assignment-rest-element';
+import { Expression } from '.';
+import { Elison } from './elison';
+export interface ArrayAssignmentPattern extends Node {
+    readonly elements: (Elison | AssignmentRestElement | AssignmentElement | Expression)[];
+}
+export declare function createArrayAssignmentPattern(elements: (Elison | AssignmentRestElement | AssignmentElement | Expression)[]): ArrayAssignmentPattern;
+//# sourceMappingURL=array-assignment-pattern.d.ts.map

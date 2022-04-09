@@ -1,0 +1,9 @@
+import { LeftHandSideExpression } from '.';
+import { Node } from '../node';
+export declare type UpdateOp = '++' | '--';
+export interface PrefixUpdateExpression extends Node {
+    readonly operator: UpdateOp;
+    readonly operand: LeftHandSideExpression;
+}
+export declare function createPrefixUpdateExpression(operator: UpdateOp, operand: LeftHandSideExpression): PrefixUpdateExpression;
+//# sourceMappingURL=prefix-update-expr.d.ts.map

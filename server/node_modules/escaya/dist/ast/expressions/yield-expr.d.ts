@@ -1,0 +1,8 @@
+import { Expression } from '.';
+import { Node } from '../node';
+export interface YieldExpression extends Node {
+    readonly delegate: boolean;
+    readonly argument: Expression | null;
+}
+export declare function createYieldExpression(delegate: boolean, argument: Expression | null): YieldExpression;
+//# sourceMappingURL=yield-expr.d.ts.map

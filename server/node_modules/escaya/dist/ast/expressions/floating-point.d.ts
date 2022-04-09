@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface FloatingPointLiteral extends Node {
+    readonly value: number;
+}
+export declare function createFloatingPointLiteral(value: number): FloatingPointLiteral;
+//# sourceMappingURL=floating-point.d.ts.map

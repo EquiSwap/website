@@ -1,0 +1,11 @@
+import { Expression } from '.';
+import { IdentifierName } from './identifiername';
+import { CallChain } from './call-chain';
+import { Node } from '../node';
+export interface MemberChain extends Node {
+    readonly chain: MemberChain | CallChain | null;
+    readonly member: Expression | IdentifierName | null;
+    readonly computed: boolean;
+}
+export declare function createMemberChain(chain: MemberChain | CallChain | null, member: Expression | IdentifierName | null, computed: boolean): MemberChain;
+//# sourceMappingURL=member-chain-expr.d.ts.map

@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '.';
+export interface CommaOperator extends Node {
+    readonly expressions: Expression[];
+}
+export declare function createCommaOperator(expressions: Expression[]): CommaOperator;
+//# sourceMappingURL=commaOperator.d.ts.map

@@ -1,0 +1,155 @@
+import { Token } from './ast/token';
+import { DiagnosticCode } from './diagnostic/diagnostic-code';
+export declare const enum Context {
+    Empty = 0,
+    OptionsNext = 1,
+    OptionsLoc = 2,
+    OptionsDisableWebCompat = 4,
+    OptionsGlobalReturn = 8,
+    OptionsModule = 16,
+    DisallowFunction = 32,
+    Return = 64,
+    InGlobal = 128,
+    OptionsCST = 256,
+    OptionsTS = 512,
+    Strict = 1024,
+    Module = 2048,
+    AllowRegExp = 4096,
+    DisallowIn = 8192,
+    Default = 32768,
+    TaggedTemplate = 65536,
+    InIteration = 131072,
+    SuperProperty = 262144,
+    SuperCall = 524288,
+    InSwitch = 1048576,
+    Yield = 2097152,
+    Await = 4194304,
+    Parameters = 8388608,
+    InConstructor = 16777216,
+    ErrorRecovery = 33554432,
+    NewTarget = 67108864,
+    ImportMeta = 134217728,
+    InBlock = 268435456,
+    TopLevel = 536870912,
+    Directive = 1073741824
+}
+export declare const enum Flags {
+    Empty = 0,
+    SeekMoved = 1,
+    SeekLineTerminator = 2,
+    NodeHasErrors = 4,
+    SeenDefault = 8,
+    Octal = 16,
+    SeenProto = 32,
+    HasProto = 64,
+    HasStrictReserved = 128,
+    SimpleParameterList = 256,
+    HasFloatingNumber = 512
+}
+export declare const enum ConcreteSyntax {
+    Empty = 0,
+    IsFloat = 2,
+    IsHex = 4,
+    IsOctal = 8,
+    IsBinary = 16,
+    ContainsSeparator = 32,
+    Scientific = 64
+}
+export declare const enum ArrowKind {
+    NORMAL = 0,
+    ASYNC = 1
+}
+export declare const enum DestuctionKind {
+    NORMAL = 0,
+    REST = 1,
+    FOR = 2
+}
+export declare const enum PropertyKind {
+    None = 0,
+    Async = 1,
+    Getter = 2,
+    Setter = 4,
+    Static = 8,
+    Generator = 16,
+    Constructor = 32
+}
+export declare const enum BindingType {
+    None = 0,
+    Pattern = 1,
+    Assignment = 2,
+    AllowLHS = 4,
+    ArgumentList = 8,
+    Let = 16,
+    Const = 32,
+    Var = 64,
+    CatchIdentifier = 128,
+    CatchPattern = 256,
+    Literal = 512,
+    FunctionLexical = 1024,
+    FunctionStatement = 2048,
+    Class = 4096,
+    Empty = 8192,
+    Export = 16384
+}
+export declare const enum Destructible {
+    None = 0,
+    Destructible = 1,
+    Assignable = 2,
+    NotDestructible = 4,
+    MustDestruct = 8,
+    DisallowTrailing = 16,
+    HasProto = 32
+}
+export interface ParserState {
+    source: string;
+    flags: Flags;
+    cst: ConcreteSyntax;
+    index: number;
+    line: number;
+    columnOffset: number;
+    lineTerminatorBeforeNextToken: boolean;
+    lineForNextToken: number;
+    columnForNextToken: number;
+    tokenIndex: number;
+    regExpPattern: string;
+    regExpFlags: string;
+    nodeHasError: boolean;
+    startIndex: number;
+    endIndex: number;
+    endColumn: number;
+    length: number;
+    token: Token;
+    tokenValue: any;
+    tokenRaw: string;
+    destructible: Destructible;
+    assignable: boolean;
+    diagnostics: any[];
+    exportedNames: any;
+    exportedBindings: any;
+    nodeCursor: any;
+    tokenRegExp: void | {
+        pattern: string;
+        flags: string;
+    };
+}
+export declare function isValidDirective(state: ParserState): boolean;
+export declare function canConsumeSemicolon(state: ParserState): boolean;
+export declare function expectSemicolon(state: ParserState, context: Context): boolean;
+export declare function consume<T extends Token>(state: ParserState, context: Context, t: T): boolean;
+export declare function consumeBit<T extends Token>(state: ParserState, context: Context, t: T, code: DiagnosticCode): boolean;
+export declare function consumeOpt<T extends Token>(state: ParserState, context: Context, t: T): boolean;
+export declare function optionalBit<T extends Token>(state: ParserState, context: Context, t: T): 0 | 1;
+export declare function lastOrUndefined<T>(array: readonly T[]): T | undefined;
+export declare function finishNode(state: ParserState, context: Context, start: number, node: any): any;
+export declare function reinterpretToPattern(node: any): void;
+export declare function reinterpretToAssignment(node: any): void;
+export declare function validateFunctionName(state: ParserState, context: Context): any;
+export declare function validateIdentifier(state: ParserState, context: Context, token: Token, start: number): void;
+export declare function validateIdentifierReference(state: ParserState, context: Context, start: number): string;
+export declare function parseStatementWithLabelSet(t: Token, label: string, labels: any, nestedLabels: any): any;
+export declare function isIterationStatement(t: Token): boolean;
+export declare function addLabel(state: ParserState, context: Context, label: string, labels: any, nestedLabels: any): any;
+export declare function checkBreakStatement(state: ParserState, context: Context, labels: any, value: string): 0 | 1;
+export declare function checkContinueStatement(labels: any, value: string): 0 | 1;
+export declare function nextLiteralExactlyStrict(state: any, start: number): boolean;
+//# sourceMappingURL=common.d.ts.map

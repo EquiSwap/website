@@ -1,0 +1,9 @@
+import { Node } from '../node';
+import { Expression } from '.';
+export interface TemplateElement extends Node {
+    readonly raw: string;
+    readonly value: string;
+    readonly expression: Expression | null;
+}
+export declare function createTemplateElement(raw: string, value: string, expression: Expression | null): TemplateElement;
+//# sourceMappingURL=template-element.d.ts.map

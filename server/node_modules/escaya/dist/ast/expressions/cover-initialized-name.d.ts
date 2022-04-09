@@ -1,0 +1,9 @@
+import { Node } from '../node';
+import { Expression } from '.';
+import { IdentifierName } from './identifiername';
+export interface CoverInitializedName extends Node {
+    readonly left: Expression | IdentifierName | null;
+    readonly right: Expression;
+}
+export declare function createCoverInitializedName(left: Expression | IdentifierName | null, right: Expression): CoverInitializedName;
+//# sourceMappingURL=cover-initialized-name.d.ts.map

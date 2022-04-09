@@ -1,0 +1,8 @@
+import { Node } from '../node';
+import { BindingIdentifier } from './binding-identifier';
+import { BindingPattern } from './';
+export interface BindingRestElement extends Node {
+    readonly argument: BindingPattern | BindingIdentifier;
+}
+export declare function createBindingRestElement(argument: BindingPattern | BindingIdentifier): BindingRestElement;
+//# sourceMappingURL=binding-rest-element.d.ts.map

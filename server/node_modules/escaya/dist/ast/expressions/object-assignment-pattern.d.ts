@@ -1,0 +1,9 @@
+import { AssignmentRestProperty } from './assignment-rest-property';
+import { IdentifierReference } from './identifierreference';
+import { PropertyName } from './property-name';
+import { Node } from '../node';
+export interface ObjectAssignmentPattern extends Node {
+    readonly properties: (IdentifierReference | PropertyName | AssignmentRestProperty)[];
+}
+export declare function createObjectAssignmentPattern(properties: (IdentifierReference | PropertyName | AssignmentRestProperty)[]): ObjectAssignmentPattern;
+//# sourceMappingURL=object-assignment-pattern.d.ts.map

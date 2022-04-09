@@ -1,0 +1,9 @@
+import { Node } from '../node';
+import { Expression } from '.';
+import { SpreadElement } from './spread-element';
+import { Elison } from './elison';
+export interface ArrayLiteral extends Node {
+    readonly elements: (Elison | SpreadElement | Expression)[];
+}
+export declare function createArrayLiteral(elements: (Elison | SpreadElement | Expression)[]): ArrayLiteral;
+//# sourceMappingURL=array-literal.d.ts.map

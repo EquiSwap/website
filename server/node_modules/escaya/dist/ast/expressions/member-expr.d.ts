@@ -1,0 +1,10 @@
+import { Expression } from '.';
+import { Node } from '../node';
+import { OptionalExpression } from './optional-expr';
+export interface MemberExpression extends Node {
+    readonly member: Expression | OptionalExpression;
+    readonly expression: Expression;
+    readonly computed: boolean;
+}
+export declare function createMemberExpression(member: Expression, expression: Expression | OptionalExpression, computed: boolean): MemberExpression;
+//# sourceMappingURL=member-expr.d.ts.map

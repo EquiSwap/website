@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface NullLiteral extends Node {
+    value: null;
+}
+export declare function createNullExpression(): NullLiteral;
+//# sourceMappingURL=null-literal.d.ts.map

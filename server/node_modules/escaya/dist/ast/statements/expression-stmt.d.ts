@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '../expressions/index';
+export interface ExpressionStatement extends Node {
+    readonly expression: Expression;
+}
+export declare function createExpressionStatement(expression: Expression): ExpressionStatement;
+//# sourceMappingURL=expression-stmt.d.ts.map

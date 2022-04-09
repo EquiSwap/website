@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface BooleanLiteral extends Node {
+    readonly value: boolean;
+}
+export declare function createBooleanLiteral(value: boolean): BooleanLiteral;
+//# sourceMappingURL=boolean-literal.d.ts.map

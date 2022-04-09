@@ -1,0 +1,9 @@
+import { IdentifierReference } from './identifierreference';
+import { Expression, AssignmentPattern } from '.';
+import { Node } from '../node';
+export interface AssignmentElement extends Node {
+    readonly left: AssignmentPattern | IdentifierReference;
+    readonly right: Expression;
+}
+export declare function createAssignmentElement(left: AssignmentPattern | IdentifierReference, right: Expression): AssignmentElement;
+//# sourceMappingURL=assignment-element.d.ts.map

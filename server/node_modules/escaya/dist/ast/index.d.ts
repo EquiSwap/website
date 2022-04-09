@@ -1,0 +1,8 @@
+import { Expression } from './expressions';
+import { Statement } from './statements';
+import { ImportExport } from './module';
+import { Module } from './module-node';
+import { Script } from './script-node';
+import { RootNode } from './root-node';
+export declare type Node = ImportExport | Statement | Expression | Script | Module | RootNode;
+//# sourceMappingURL=index.d.ts.map

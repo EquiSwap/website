@@ -1,0 +1,8 @@
+import { Node } from '../node';
+import { Expression } from '.';
+import { CommaOperator } from './commaOperator';
+export interface ParenthesizedExpression extends Node {
+    readonly expression: Expression | CommaOperator;
+}
+export declare function createParenthesizedExpression(expression: Expression | CommaOperator): ParenthesizedExpression;
+//# sourceMappingURL=parenthesized-expr.d.ts.map

@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type NewTarget = Node;
+export declare function createNewTarget(): NewTarget;
+//# sourceMappingURL=new-target.d.ts.map

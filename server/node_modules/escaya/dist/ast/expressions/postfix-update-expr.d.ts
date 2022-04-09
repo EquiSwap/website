@@ -1,0 +1,9 @@
+import { Expression } from '.';
+import { Node } from '../node';
+import { UpdateOp } from './prefix-update-expr';
+export interface PostfixUpdateExpression extends Node {
+    readonly operator: UpdateOp;
+    readonly operand: Expression;
+}
+export declare function createPostfixUpdateExpression(operator: UpdateOp, operand: Expression): PostfixUpdateExpression;
+//# sourceMappingURL=postfix-update-expr.d.ts.map

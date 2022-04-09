@@ -1,0 +1,24 @@
+import { Node } from './node';
+import { Diagnostic } from '../diagnostic';
+import { Flags, Context } from '../common';
+import { ImportExport } from './module';
+import { Directive } from './directive-node';
+export interface RootNode extends Node {
+    readonly directives: Directive[];
+    readonly leafs: ImportExport[];
+    readonly text: string;
+    readonly fileName: string;
+    readonly context: Context;
+    readonly mutualFlags: Flags;
+    readonly diagnostics: Diagnostic[];
+    readonly parent?: Node | null;
+    readonly length?: number;
+    readonly children: any[] | null;
+    readonly webCompat: boolean;
+    readonly start: number;
+    readonly end: number;
+    detached: boolean;
+    incremental: boolean;
+}
+export declare function createRootNode(directives: Directive[], leafs: ImportExport[], webCompat: boolean, text: string, fileName: string, diagnostics: Diagnostic[]): RootNode;
+//# sourceMappingURL=root-node.d.ts.map

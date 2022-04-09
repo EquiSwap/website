@@ -1,0 +1,16 @@
+import { FunctionBody } from './function-body';
+import { BindingRestElement } from './binding-rest-element';
+import { BindingIdentifier } from './binding-identifier';
+import { ArrayBindingPattern } from './array-binding-pattern';
+import { ObjectBindingPattern } from './object-binding-pattern';
+import { Expression } from './';
+import { Node } from '../node';
+export declare type ArrowFormals = BindingIdentifier | BindingRestElement | ArrayBindingPattern | ObjectBindingPattern;
+export interface ArrowFunction extends Node {
+    readonly params: BindingIdentifier | ArrowFormals[];
+    readonly contents: Expression | FunctionBody;
+    readonly arrowParameters: boolean;
+    async: boolean;
+}
+export declare function createArrowFunction(params: BindingIdentifier | ArrowFormals[], contents: Expression | FunctionBody, arrowParameters: boolean, async: boolean): ArrowFunction;
+//# sourceMappingURL=arrow-function.d.ts.map

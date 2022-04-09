@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface BindingIdentifier extends Node {
+    readonly name: string;
+}
+export declare function createBindingIdentifier(name: string): BindingIdentifier;
+//# sourceMappingURL=binding-identifier.d.ts.map

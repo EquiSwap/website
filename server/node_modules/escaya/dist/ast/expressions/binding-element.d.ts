@@ -1,0 +1,9 @@
+import { Expression, BindingPattern } from '.';
+import { BindingIdentifier } from './binding-identifier';
+import { Node } from '../node';
+export interface BindingElement extends Node {
+    readonly left: BindingPattern | BindingIdentifier;
+    readonly right: Expression;
+}
+export declare function createBindingElement(left: BindingPattern | BindingIdentifier, right: Expression): BindingElement;
+//# sourceMappingURL=binding-element.d.ts.map

@@ -1,0 +1,8 @@
+import { Token } from './../ast/token';
+import { Context, ParserState } from '../common';
+import { Char } from './char';
+export declare const octHexBinTbl: Char[];
+export declare function scanNumber(state: ParserState, context: Context, cp: number): Token;
+export declare function scanDecimalDigitsOrSeparator(parser: ParserState, context: Context, start: number, cp: number): string;
+export declare function parseFloatingPointLiteral(state: ParserState, context: Context, cp: number): Token;
+//# sourceMappingURL=numeric.d.ts.map

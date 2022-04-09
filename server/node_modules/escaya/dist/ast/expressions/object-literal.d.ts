@@ -1,0 +1,12 @@
+import { PropertyName } from './property-name';
+import { CoverInitializedName } from './cover-initialized-name';
+import { IdentifierReference } from './identifierreference';
+import { MethodDefinition } from './method-definition';
+import { SpreadProperty } from './spread-property';
+import { Node } from '../node';
+export declare type Properties = IdentifierReference | PropertyName | CoverInitializedName | MethodDefinition | SpreadProperty;
+export interface ObjectLiteral extends Node {
+    readonly properties: Properties[];
+}
+export declare function createObjectLiteral(properties: Properties[]): ObjectLiteral;
+//# sourceMappingURL=object-literal.d.ts.map

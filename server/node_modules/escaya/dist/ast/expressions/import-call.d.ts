@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '.';
+export interface ImportCall extends Node {
+    readonly import: Expression;
+}
+export declare function createImportCall(_import: Expression): ImportCall;
+//# sourceMappingURL=import-call.d.ts.map

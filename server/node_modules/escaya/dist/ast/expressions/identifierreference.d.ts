@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface IdentifierReference extends Node {
+    readonly name: string;
+}
+export declare function createIdentifierReference(name: string): IdentifierReference;
+//# sourceMappingURL=identifierreference.d.ts.map

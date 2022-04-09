@@ -1,0 +1,8 @@
+import { Expression, LeftHandSideExpression } from '.';
+import { Node } from '../node';
+export interface CallExpression extends Node {
+    readonly expression: LeftHandSideExpression;
+    readonly arguments: Expression[];
+}
+export declare function createCallExpression(expression: LeftHandSideExpression, _arguments: Expression[]): CallExpression;
+//# sourceMappingURL=call-expr.d.ts.map

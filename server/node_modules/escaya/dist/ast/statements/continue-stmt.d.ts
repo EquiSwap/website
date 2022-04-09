@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { IdentifierReference } from '../expressions/identifierreference';
+export interface ContinueStatement extends Node {
+    readonly label: IdentifierReference | null;
+}
+export declare function createContinueStatement(label: IdentifierReference | null): ContinueStatement;
+//# sourceMappingURL=continue-stmt.d.ts.map

@@ -1,0 +1,12 @@
+import { Node } from '../node';
+import { MultiLine } from './multi-line';
+import { SingleLine } from './single-line';
+import { HTMLClose } from './html-close';
+import { HTMLOpen } from './html-open';
+export interface Comment extends Node {
+    type: 'SingleLine' | 'MultiLine' | 'HTMLClose' | 'HTMLOpen';
+    comment?: string;
+    newLine: boolean;
+}
+export declare type Comments = MultiLine | SingleLine | HTMLOpen | HTMLClose;
+//# sourceMappingURL=index.d.ts.map

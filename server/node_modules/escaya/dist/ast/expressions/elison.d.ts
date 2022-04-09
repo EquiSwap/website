@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type Elison = Node;
+export declare function createElison(): Elison;
+//# sourceMappingURL=elison.d.ts.map

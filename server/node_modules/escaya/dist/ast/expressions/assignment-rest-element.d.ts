@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '.';
+export interface AssignmentRestElement extends Node {
+    readonly argument: Expression;
+}
+export declare function createAssignmentRestElement(argument: Expression): AssignmentRestElement;
+//# sourceMappingURL=assignment-rest-element.d.ts.map

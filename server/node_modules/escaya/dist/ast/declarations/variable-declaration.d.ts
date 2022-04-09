@@ -1,0 +1,11 @@
+import { Node } from '../node';
+import { Expression } from '../expressions/index';
+import { BindingIdentifier } from '../expressions/binding-identifier';
+import { ArrayBindingPattern } from '../expressions/array-binding-pattern';
+import { ObjectBindingPattern } from '../expressions/object-binding-pattern';
+export interface VariableDeclaration extends Node {
+    readonly binding: BindingIdentifier | ArrayBindingPattern | ObjectBindingPattern;
+    readonly initializer: Expression | null;
+}
+export declare function createVariableDeclaration(binding: BindingIdentifier | ArrayBindingPattern | ObjectBindingPattern, initializer: Expression | null): VariableDeclaration;
+//# sourceMappingURL=variable-declaration.d.ts.map

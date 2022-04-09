@@ -1,0 +1,10 @@
+import { Node } from '../node';
+import { StringLiteral } from '../expressions/string-literal';
+import { ImportClause } from './import-clause';
+export interface ImportDeclaration extends Node {
+    readonly fromClause: StringLiteral | null;
+    readonly moduleSpecifier: StringLiteral | null;
+    readonly importClause: ImportClause | null;
+}
+export declare function createImportDeclaration(fromClause: StringLiteral | null, moduleSpecifier: StringLiteral | null, importClause: ImportClause | null): ImportDeclaration;
+//# sourceMappingURL=import-declaration.d.ts.map

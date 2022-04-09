@@ -1,0 +1,6 @@
+import { Context, ParserState } from '../common';
+import { IdentifierReference } from '../ast/expressions/identifierreference';
+import { DiagnosticCode } from '../diagnostic/diagnostic-code';
+export declare function createIdentifier(state: ParserState, context: Context, code?: DiagnosticCode): IdentifierReference;
+export declare function createBindingIdentifier(state: ParserState, context: Context, code: DiagnosticCode, shouldConsume?: boolean): IdentifierReference;
+//# sourceMappingURL=common.d.ts.map

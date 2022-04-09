@@ -1,0 +1,31 @@
+import { DiagnosticCode } from './diagnostic-code';
+import { Context, ParserState } from '../common';
+export declare const enum DiagnosticKind {
+    Message = 0,
+    Warning = 1,
+    Error = 2,
+    Early = 3,
+    AnnexB = 4,
+    Hint = 5
+}
+export declare const enum DiagnosticSource {
+    Lexer = 0,
+    Parser = 2,
+    Recovery = 4
+}
+export interface Diagnostic {
+    kind: DiagnosticKind;
+    source: DiagnosticSource;
+    code: DiagnosticCode;
+    message: string;
+    start: number;
+    length: number;
+}
+export declare function addScopeDiagnostic(state: ParserState, context: Context, scope: any, code: DiagnosticCode): void;
+export declare function addparserDiagnostic(state: ParserState, context: Context, start: number, code: DiagnosticCode, ...args: string[]): void;
+export declare function addLexerDiagnostic(state: ParserState, context: Context, start: number, end: number, code: DiagnosticCode, ...args: string[]): void;
+export declare function addEarlyDiagnostic(state: ParserState, context: Context, code: DiagnosticCode, ...args: string[]): void;
+export declare function addDiagnostic(state: ParserState, context: Context, source: DiagnosticSource, code: DiagnosticCode, kind: DiagnosticKind, ...args: string[]): void;
+export declare function createDiagnostic(state: ParserState, context: Context, source: DiagnosticSource, code: DiagnosticCode, kind: DiagnosticKind, start: number, end: number, ...args: string[]): void;
+export declare function formatStringFromArgs(message: string, args: string[]): string;
+//# sourceMappingURL=index.d.ts.map

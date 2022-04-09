@@ -1,0 +1,7 @@
+import { Expression } from '.';
+import { Node } from '../node';
+export interface ComputedPropertyName extends Node {
+    readonly expression: Expression;
+}
+export declare function ComputedPropertyName(expression: Expression): ComputedPropertyName;
+//# sourceMappingURL=computed-property-name.d.ts.map

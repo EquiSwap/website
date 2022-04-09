@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type Semicolon = Node;
+export declare function createSemicolon(): Semicolon;
+//# sourceMappingURL=semicolon.d.ts.map

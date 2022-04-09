@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type EmptyStatement = Node;
+export declare function createEmptyStatement(): EmptyStatement;
+//# sourceMappingURL=empty-stmt.d.ts.map

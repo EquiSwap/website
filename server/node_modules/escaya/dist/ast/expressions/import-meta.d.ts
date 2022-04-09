@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type ImportMeta = Node;
+export declare function createImportMeta(): ImportMeta;
+//# sourceMappingURL=import-meta.d.ts.map

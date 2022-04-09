@@ -1,0 +1,12 @@
+import { Node } from '../node';
+import { Statement } from '.';
+import { Expression, AssignmentPattern } from '../expressions/index';
+import { LexicalDeclaration } from '../declarations/lexical-declaration';
+import { ForBinding } from './forBinding';
+export interface ForInStatement extends Node {
+    readonly initializer: LexicalDeclaration | ForBinding | AssignmentPattern | Expression | null;
+    readonly expression: Expression;
+    readonly statement: Statement;
+}
+export declare function createForInStatement(initializer: LexicalDeclaration | ForBinding | AssignmentPattern | Expression | null, expression: Expression, statement: Statement): ForInStatement;
+//# sourceMappingURL=for-in-stmt.d.ts.map

@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface StringLiteral extends Node {
+    readonly value: string;
+}
+export declare function createStringLiteral(value: string): StringLiteral;
+//# sourceMappingURL=string-literal.d.ts.map

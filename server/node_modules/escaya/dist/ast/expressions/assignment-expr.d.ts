@@ -1,0 +1,13 @@
+import { Expression } from './';
+import { ArrayAssignmentPattern } from './array-assignment-pattern';
+import { ObjectAssignmentPattern } from './object-assignment-pattern';
+import { Node } from '../node';
+export declare type AssignmentOperator = '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '<<=' | '>>=' | '>>>=' | '|=' | '^=' | '&=' | '**=';
+export declare type LogicalAssignmentOperator = '||=' | '&&=' | '??=';
+export interface AssignmentExpression extends Node {
+    readonly left: ObjectAssignmentPattern | ArrayAssignmentPattern | Expression;
+    readonly operator: AssignmentOperator | LogicalAssignmentOperator;
+    readonly right: Expression;
+}
+export declare function createAssignmentExpression(left: ObjectAssignmentPattern | ArrayAssignmentPattern | Expression, operator: AssignmentOperator | LogicalAssignmentOperator, right: Expression): AssignmentExpression;
+//# sourceMappingURL=assignment-expr.d.ts.map

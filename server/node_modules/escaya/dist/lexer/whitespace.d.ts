@@ -1,0 +1,8 @@
+import { Context, ParserState, Flags } from '../common';
+import { Char } from './char';
+import { ScannerState } from './common';
+import { Comment } from '../ast/comments';
+export declare const whitespaceTbl: Char[];
+export declare function skipWhitespace(parser: ParserState, context: Context, state: ScannerState): Flags;
+export declare function extractComments(source: string, index: number, isModule: boolean, state: ScannerState): Comment[];
+//# sourceMappingURL=whitespace.d.ts.map

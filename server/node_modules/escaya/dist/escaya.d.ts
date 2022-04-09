@@ -1,0 +1,18 @@
+import { RootNode } from './ast/root-node';
+import { Script } from './ast/script-node';
+import { Module } from './ast/module-node';
+import { TextChangeRange } from './types';
+import { Options } from './core';
+import { Dictionary } from './dictionary/dictionary-map';
+export { DictionaryMap } from './dictionary/dictionary-map';
+import { Comments } from './ast/comments';
+export declare function parseScript(source: string, options?: Options): Script;
+export declare function parseModule(source: string, options?: Options): Module;
+export declare function parseCustomScript(source: string, dictionary: Dictionary, options?: Options): Script;
+export declare function parseCustomModule(source: string, dictionary: Dictionary, options?: Options): Module;
+export declare function recovery(text: string, fileName: string, options?: Options): RootNode;
+export declare function update(text: string, fileName: string, root: RootNode, textChangeRange: TextChangeRange): RootNode;
+export declare function extractCommentsScript(source: string, start: number, trailing: boolean): Comments[];
+export declare function extractCommentsModule(source: string, start: number, trailing: boolean): Comments[];
+export declare const version = "0.60";
+//# sourceMappingURL=escaya.d.ts.map

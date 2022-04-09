@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface BigIntLiteral extends Node {
+    readonly value: number | null;
+}
+export declare function createBigIntLiteral(value: number | null): BigIntLiteral;
+//# sourceMappingURL=bigint-literal.d.ts.map

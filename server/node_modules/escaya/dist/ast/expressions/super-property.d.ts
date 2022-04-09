@@ -1,0 +1,9 @@
+import { Expression } from '.';
+import { IdentifierName } from './identifiername';
+import { Node } from '../node';
+export interface SuperProperty extends Node {
+    readonly super: Expression | IdentifierName;
+    readonly computed: boolean;
+}
+export declare function createSuperProperty(_super: Expression | IdentifierName, computed: boolean): SuperProperty;
+//# sourceMappingURL=super-property.d.ts.map

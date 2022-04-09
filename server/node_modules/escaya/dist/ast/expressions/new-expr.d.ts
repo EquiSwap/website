@@ -1,0 +1,8 @@
+import { Expression } from './';
+import { Node } from '../node';
+export interface NewExpression extends Node {
+    readonly expression: Expression;
+    readonly arguments: Expression[];
+}
+export declare function createNewExpression(expression: Expression, _arguments: Expression[]): NewExpression;
+//# sourceMappingURL=new-expr.d.ts.map

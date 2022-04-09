@@ -1,0 +1,9 @@
+import { Context, ParserState } from '../common';
+import { Token } from './../ast/token';
+export declare function scanIdentifier(state: ParserState, context: Context, cp: number): Token;
+export declare function scanIdentifierOrKeyword(state: ParserState, context: Context, cp: number): Token;
+export declare function scanIdentifierSlowPath(state: ParserState, context: Context): Token;
+export declare function scanIdentifierEscape(state: ParserState, context: Context): number;
+export declare function scanIdentifierEscapeIdStart(state: ParserState, context: Context): Token;
+export declare function scanMaybeIdentifier(state: ParserState, context: Context): Token;
+//# sourceMappingURL=identifiers.d.ts.map

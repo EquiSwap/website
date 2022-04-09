@@ -1,0 +1,6 @@
+import { Context, ParserState } from '../common';
+import { Token } from './../ast/token';
+export declare const firstCharKinds: Token[];
+export declare function scanSingleToken(state: ParserState, context: Context): Token;
+export declare function nextToken(state: ParserState, context: Context): void;
+//# sourceMappingURL=scan.d.ts.map

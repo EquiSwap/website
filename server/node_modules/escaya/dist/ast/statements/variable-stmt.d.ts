@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { VariableDeclaration } from '../declarations/variable-declaration';
+export interface VariableStatement extends Node {
+    readonly declarations: VariableDeclaration[];
+}
+export declare function createVariableStatement(declarations: VariableDeclaration[]): VariableStatement;
+//# sourceMappingURL=variable-stmt.d.ts.map

@@ -1,0 +1,9 @@
+import { Node } from '../node';
+import { IdentifierName } from '../expressions/identifiername';
+import { StringLiteral } from '../expressions/string-literal';
+export interface ExportFromClause extends Node {
+    readonly moduleExportName: StringLiteral | null;
+    readonly namedBinding: IdentifierName | null;
+}
+export declare function createExportFromClause(namedBinding: IdentifierName | null, moduleExportName: StringLiteral | null): ExportFromClause;
+//# sourceMappingURL=export-from-clause.d.ts.map

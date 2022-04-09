@@ -1,0 +1,8 @@
+import { ParserState, Context } from '../common';
+import { Token } from '../ast/token';
+import { Char } from './char';
+export declare const escapeChar: Char[];
+export declare function scanTemplateSpan(state: ParserState, context: Context): Token;
+export declare function parseTemplateEscape(state: ParserState, context: Context, source: string, isTagged: boolean, cp: number): string | number;
+export declare function scanTemplateTail(state: ParserState, context: Context): any;
+//# sourceMappingURL=template.d.ts.map

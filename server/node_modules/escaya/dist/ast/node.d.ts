@@ -1,0 +1,18 @@
+export interface Node {
+    type?: string;
+    meta?: NodeMeta;
+    flags?: NodeFlags;
+    start?: number;
+    end?: number;
+}
+export interface NodeMeta {
+    asi?: boolean;
+    newlineBeforNextToken?: boolean;
+}
+export declare const enum NodeFlags {
+    None = 0,
+    HasErrors = 2,
+    Synthetic = 4,
+    HasSideEffects = 8
+}
+//# sourceMappingURL=node.d.ts.map

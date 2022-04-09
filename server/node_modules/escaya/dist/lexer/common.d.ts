@@ -1,0 +1,13 @@
+export declare const enum ScannerState {
+    None = 0,
+    NewLine = 1,
+    SameLine = 2,
+    LastIsCR = 4,
+    LineStart = 8,
+    Collecting = 16,
+    Trailing = 48
+}
+export declare function isIdentifierPart(cp: number): any;
+export declare function toHex(cp: number): number;
+export declare function fromCodePoint(cp: number): string;
+//# sourceMappingURL=common.d.ts.map

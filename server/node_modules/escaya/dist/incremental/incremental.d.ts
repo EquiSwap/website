@@ -1,0 +1,10 @@
+import { Constants } from '../constants';
+import { Context, ParserState, BindingType } from '../common';
+export declare function parseBlockElements(state: ParserState, context: Context, scope: any, labels: any, nestedLabels: any, cb: any): any;
+export declare function parseSwitchElements(state: ParserState, context: Context, scope: any, check: Constants, labels: any, nestedLabels: any, cb: any): any;
+export declare function parseBindingElements(state: ParserState, context: Context, scope: any, type: BindingType, cb: any): any;
+export declare function parseForElements(state: ParserState, context: Context, cb: any): any;
+export declare function parseListElements(state: ParserState, context: Context, cb: any): any;
+export declare function currentNode(state: ParserState): any;
+export declare function consumeNode(_state: ParserState, _context: Context, node: any): any;
+//# sourceMappingURL=incremental.d.ts.map

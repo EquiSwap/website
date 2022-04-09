@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface NumericLiteral extends Node {
+    readonly value: number;
+}
+export declare function createNumericLiteral(value: number): NumericLiteral;
+//# sourceMappingURL=numeric-literal.d.ts.map

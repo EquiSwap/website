@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Statement } from '.';
+export interface BlockStatement extends Node {
+    readonly leafs: Statement[];
+}
+export declare function createBlockStatement(leafs: Statement[]): BlockStatement;
+//# sourceMappingURL=block-stmt.d.ts.map

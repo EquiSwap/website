@@ -1,0 +1,4 @@
+import { Comment } from './';
+export declare type MultiLine = Comment;
+export declare function createHTMLClose(comment: string, newLine: boolean): MultiLine;
+//# sourceMappingURL=multi-line.d.ts.map

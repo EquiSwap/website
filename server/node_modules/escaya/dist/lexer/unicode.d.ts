@@ -1,0 +1,2 @@
+export declare const unicodeLookup: Uint32Array;
+//# sourceMappingURL=unicode.d.ts.map

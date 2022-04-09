@@ -1,0 +1,6 @@
+import { Node } from '../node';
+export interface LabelIdentifier extends Node {
+    readonly name: string;
+}
+export declare function createLabelIdentifier(name: string): LabelIdentifier;
+//# sourceMappingURL=labelIdentifier-expr.d.ts.map

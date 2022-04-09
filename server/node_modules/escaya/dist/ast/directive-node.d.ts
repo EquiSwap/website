@@ -1,0 +1,7 @@
+import { Node } from './node';
+export interface Directive extends Node {
+    readonly value: string;
+    readonly raw: string;
+}
+export declare function createDirective(value: string, raw: string): Directive;
+//# sourceMappingURL=directive-node.d.ts.map

@@ -1,0 +1,4 @@
+import { Comment } from './';
+export declare type SingleLine = Comment;
+export declare function createHTMLClose(comment: string, newLine: boolean): SingleLine;
+//# sourceMappingURL=single-line.d.ts.map

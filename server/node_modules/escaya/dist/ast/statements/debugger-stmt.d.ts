@@ -1,0 +1,4 @@
+import { Node } from '../node';
+export declare type DebuggerStatement = Node;
+export declare function createDebuggerStatement(): DebuggerStatement;
+//# sourceMappingURL=debugger-stmt.d.ts.map

@@ -1,0 +1,4 @@
+export declare const diagnosticMap: {
+    [key: string]: string;
+};
+//# sourceMappingURL=diagnostic-map.d.ts.map

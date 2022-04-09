@@ -1,0 +1,12 @@
+import { Expression } from '.';
+import { BindingIdentifier } from './binding-identifier';
+import { Node } from '../node';
+import { ClassElement } from './class-element';
+import { Semicolon } from './semicolon';
+export interface ClassExpression extends Node {
+    readonly name: BindingIdentifier | null;
+    readonly heritage: Expression | null;
+    readonly elements: (Semicolon | ClassElement)[];
+}
+export declare function createClassExpression(name: BindingIdentifier | null, heritage: Expression | null, elements: ClassElement[]): ClassExpression;
+//# sourceMappingURL=class-expr.d.ts.map

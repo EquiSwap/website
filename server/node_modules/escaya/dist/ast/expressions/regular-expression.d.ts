@@ -1,0 +1,8 @@
+import { Node } from '../node';
+export declare type RegExpFlags = 'g' | 'i' | 'm' | 'u' | 's' | 'y';
+export interface RegularExpressionLiteral extends Node {
+    readonly pattern: string;
+    readonly flag: string;
+}
+export declare function createRegularExpressionLiteral(pattern: string, flag: string): RegularExpressionLiteral;
+//# sourceMappingURL=regular-expression.d.ts.map

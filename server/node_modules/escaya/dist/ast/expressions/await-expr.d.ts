@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { Expression } from '.';
+export interface AwaitExpression extends Node {
+    readonly expression: Expression;
+}
+export declare function createAwaitExpression(expression: Expression): AwaitExpression;
+//# sourceMappingURL=await-expr.d.ts.map

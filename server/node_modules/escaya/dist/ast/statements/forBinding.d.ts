@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { VariableDeclaration } from '../declarations/variable-declaration';
+export interface ForBinding extends Node {
+    readonly declarations: VariableDeclaration[];
+}
+export declare function createForBinding(declarations: VariableDeclaration[]): ForBinding;
+//# sourceMappingURL=forBinding.d.ts.map

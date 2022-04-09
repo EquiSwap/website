@@ -1,0 +1,9 @@
+import { Node } from '../node';
+import { Statement } from '.';
+import { LabelIdentifier } from '../expressions/labelIdentifier-expr';
+export interface LabelledStatement extends Node {
+    readonly label: LabelIdentifier;
+    readonly labelledItem: Statement;
+}
+export declare function createLabelledStatement(label: LabelIdentifier, labelledItem: Statement): LabelledStatement;
+//# sourceMappingURL=labelled-stmt.d.ts.map

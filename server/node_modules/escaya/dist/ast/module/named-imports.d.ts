@@ -1,0 +1,7 @@
+import { Node } from '../node';
+import { ImportSpecifier } from './import-specifier';
+export interface NamedImports extends Node {
+    readonly importsList: ImportSpecifier[];
+}
+export declare function createNamedImports(importsList: ImportSpecifier[]): NamedImports;
+//# sourceMappingURL=named-imports.d.ts.map

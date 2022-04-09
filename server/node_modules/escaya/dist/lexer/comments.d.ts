@@ -1,0 +1,6 @@
+import { Context, ParserState } from '../common';
+import { ScannerState } from './common';
+export declare function skipSingleLine(parser: ParserState, source: string, state: ScannerState): ScannerState;
+export declare function skipBlockComment(parser: ParserState, context: Context, source: string, state: ScannerState): ScannerState;
+export declare function skipHashbang(parser: ParserState, source: string): void;
+//# sourceMappingURL=comments.d.ts.map
