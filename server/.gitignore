@@ -1,6 +1,9 @@
 # Temporary Files
 temp/
 
+# Node
+node_modules/
+
 # Yarn v2
 .yarn/*
 !.yarn/patches
