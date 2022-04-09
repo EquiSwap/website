@@ -1,0 +1,39 @@
+# frontend-test.yml
+# Automatically perform tests on the frontend app on push and pull request.
+
+name: Frontend Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+defaults:
+  # Run all scripts in the app/ subdirectory.
+  run:
+    working-directory: app
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # Test current major node versions to ensure cross-compatibility.
+        node-version: [14.x, 16.x]
+
+    steps:
+    # Clone and set up the code base.
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        # Cache yarn dependencies in the app/ subdirectory.
+        cache: 'yarn'
+        cache-dependency-path: app/yarn.lock
+    # Perform a 'CI' install and test.
+    - run: yarn install --immutable
+    - run: yarn test
