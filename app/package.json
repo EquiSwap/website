@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "yarn playwright test",
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "test": "NODE_OPTIONS=--openssl-legacy-provider yarn playwright test",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider nuxt",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider nuxt build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider nuxt start",
+    "generate": "NODE_OPTIONS=--openssl-legacy-provider nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
@@ -24,8 +24,6 @@
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@playwright/test": "^1.20.2",
-    "@types/jest": "^27.4.1",
-    "jest": "^27.5.1",
     "nuxt-windicss": "^2",
     "playwright": "^1.20.2",
     "sass": "^1.50.0",
