@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "NODE_OPTIONS=--openssl-legacy-provider yarn playwright test",
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider nuxt",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider nuxt build",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider nuxt start",
-    "generate": "NODE_OPTIONS=--openssl-legacy-provider nuxt generate"
+    "test": "yarn playwright test",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
