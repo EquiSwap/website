@@ -1,10 +1,12 @@
 <template>
     <div>
-        <SignInCard />
-        <div class="left">
+        <SignInCard>
             <Icon />
+            <h1 class="center">Welcome back!</h1>
             <TextField />
-        </div>
+            <TextField />
+            <Button class="center" />
+        </SignInCard>
     </div>
 </template>
 
@@ -12,6 +14,9 @@
 
 </script>
 
-<style>
-  @import "~/assets/css/signup.scss";
+<style lang="scss" scoped>
+.center {
+    display: grid;
+    place-items: center;
+}
 </style>

@@ -1,11 +1,11 @@
 <template>
 
     <div class="container">
-        <div class="icon-left">
-            <Icon />
+        <div class="left">
+            <slot />
         </div>
-            <div class="right">
-            <img src="~/assets/images/login.png" alt="login image" class="image">
+        <div class="right">
+            <img src="~/assets/images/backgrounds/login.png" alt="login image" class="image" draggable="false">
             <div class="icon-right">
                 <Icon />
             </div>
@@ -20,6 +20,6 @@
     }
 </script>
 
-<style>
+<style lang="scss">
   @import "~/assets/css/signup.scss";
 </style>
