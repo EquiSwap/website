@@ -1,8 +1,10 @@
 <template>
     <div>
         <SignInCard>
-            <Icon />
-            <h1 class="center">Hey there!</h1>
+            <Icon class="icon-left" />
+            <h1 class="header-box center">Hey there!</h1>
+            <p class="text-box center">Please create an account to continue...</p>
+            <TextField />
             <TextField />
             <TextField />
             <Button class="center" />
@@ -15,6 +17,19 @@
 </script>
 
 <style lang="scss" scoped>
+.header-box {
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+// .text-box {
+//     padding: 10px;
+// }
+
+.icon-left {
+    width: 30%;
+}
 .center {
     display: grid;
     place-items: center;

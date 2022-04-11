@@ -41,6 +41,8 @@ $loginBorderRadius: 25px;
 
     .icon-right {
         position: absolute;
+        display: grid;
+        place-items: center;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

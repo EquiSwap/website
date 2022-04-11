@@ -1,8 +1,8 @@
 <template>
     <div>
         <SignInCard>
-            <Icon />
-            <h1 class="center">Welcome back!</h1>
+            <Icon class="icon-left" />
+            <h1 class="header-box center">Welcome back!</h1>
             <TextField />
             <TextField />
             <Button class="center" />
@@ -15,6 +15,15 @@
 </script>
 
 <style lang="scss" scoped>
+.header-box {
+    padding: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.icon-left {
+    width: 30%;
+}
 .center {
     display: grid;
     place-items: center;
