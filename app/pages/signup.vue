@@ -3,7 +3,7 @@
         <SignInCard>
             <Icon class="icon-left" />
             <h1 class="header-box center">Hey there!</h1>
-            <p class="text-box center">Please create an account to continue...</p>
+            <p class="center">Please create an account to continue...</p>
             <TextField />
             <TextField />
             <TextField />
@@ -22,10 +22,6 @@
     font-size: 30px;
     font-weight: bold;
 }
-
-// .text-box {
-//     padding: 10px;
-// }
 
 .icon-left {
     width: 30%;

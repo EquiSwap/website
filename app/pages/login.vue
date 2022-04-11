@@ -3,6 +3,7 @@
         <SignInCard>
             <Icon class="icon-left" />
             <h1 class="header-box center">Welcome back!</h1>
+            <p class="center">Please log in to continue...</p>
             <TextField />
             <TextField />
             <Button class="center" />
