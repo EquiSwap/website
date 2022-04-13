@@ -31,7 +31,7 @@ html {
 input {
   font-family: 'DM Sans';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -45,8 +45,7 @@ input {
 }
 
 .search__label {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAQAAAC1QeVaAAAAxElEQVR4AXXPIUuDcRDA4Zv4AUSwTLEKVoNlySyCYLO98CCsahGrX0AW/QhmBRHEJghLS4JFBBXDgrJi2In78w8v4v3S8XDh4nd0DTxLEzd2RC2EnrH07trQVDrXqbhs7FvfnBDWDKWTigOpL2oWvZpYKPjio1zVHEt7BdOtaLUtHRX8MmqjRjooeCVttPBOWi+4JT1aLaDjVLpU/5ytn840Dj1IaWSpYmi8yVlTF54qh9K8nn27usJK5fC3yvfhPx7a/AE9dYwDEfKrlAAAAABJRU5ErkJggg==);
-  background-position-y: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
   background-repeat: no-repeat;
   color: #6D6D6D;
   left: 50%;
@@ -54,15 +53,16 @@ input {
   transform: translate(-50%, -50%);
   top: 50%;
   transition: left 0.3s, transform 0.3s;
-  padding-left: 1.25em;
+  padding-left: 1.8em;
 }
 
 .search__input {
   border: 1px solid #dfdfdf;
-  border-radius: 0.25em;
+  border-radius: 0.3em;
   display: block;
   padding: 0.5em 1.75em;
   width: 100%;
+  background-color: #EBEBEB;
 }
 
 .search__input:focus + .search__label,
