@@ -14,11 +14,7 @@
 
 $green: #9bda5d;
 $darkGreen: #8bc254;
-$red: #e74c3c;
-$blue: #3498db;
-$yellow: #f1c40f;
-$purple: #8e44ad;
-$turquoise: #1abc9c;
+
 
 .button {
     box-sizing: border-box;
@@ -33,6 +29,7 @@ $turquoise: #1abc9c;
     line-height: 1;
     margin: 20px;
     padding: 1.2em 2.8em;
+    color:#fff;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
@@ -41,7 +38,6 @@ $turquoise: #1abc9c;
 
     &:hover,
     &:focus {
-        color: #fff;
         outline: 0;
     }
 }
