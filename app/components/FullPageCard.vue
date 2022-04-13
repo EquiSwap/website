@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-
+    <div class="contain">
+        
     </div>
 </template>
 
@@ -12,12 +12,12 @@
 
 <style lang="scss" scoped>
 
-.container {
+.contain {
     position: absolute;
     display: flex;
     margin: auto;
-    width: 4000px;
-    height: 920px;
+    width: 2200px;
+    height: 1000px;
     left: 50%;
     top: 50%;
 
