@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="~/assets/images/equiswap-with-name.png" alt="logo" class="image">
+        <img src="~/assets/images/equiswap_logo.png" alt="logo" class="image">
     </div>
 </template>
 
