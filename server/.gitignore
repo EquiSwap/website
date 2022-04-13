@@ -1,0 +1,14 @@
+# Temporary Files
+temp/
+
+# Node
+node_modules/
+
+# Yarn v2
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

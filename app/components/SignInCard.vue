@@ -1,9 +1,17 @@
 <template>
+
     <div class="container">
+        <div class="left">
+            <slot />
+        </div>
         <div class="right">
-            <img src="~/assets/images/login.png" alt="login image" class="image">
+            <img src="~/assets/images/backgrounds/login.png" alt="login image" class="image" draggable="false">
+            <div class="icon-right">
+                <Icon />
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -12,26 +20,6 @@
     }
 </script>
 
-<style scoped>
-    .container {
-        position: absolute;
-        width: 1182px;
-        height: 745px;
-        left: 369px;
-        top: 205px;
-
-        background: #ffffff;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 25px;
-    }
-
-    .left {
-        position: absolute;
-        left: 0%;
-    }
-
-    .right {
-        position: absolute;
-        right: 0%;
-    }
+<style lang="scss">
+  @import "~/assets/css/signup.scss";
 </style>

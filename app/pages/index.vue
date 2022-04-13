@@ -3,6 +3,7 @@
   <div>
     <Button />
     <div>
+      <TrendingCard />
       <ProductCard />
     </div>
   </div>

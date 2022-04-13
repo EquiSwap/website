@@ -1,28 +1,24 @@
 <template>
     <div class="mainContainer">
-        <div class="imgContainer">
-            <img src="~assets/images/books.jpg" alt="" class="ProductImage">
-        </div>
-        <div>
-            <h2 class="productTitle">
-                books
-            </h2>
-        </div>
+        <img src="~assets/images/books.jpg" alt="" class="image">
+        <p class="ProductName">Product 1</p>
+        <p class="ProductPrice">$12</p>
     </div>
 </template>
 
 <script>
     export default {
         
+        
     }
 </script>
 
 <style lang="scss" scoped>
-
 $background:#E5E5E5;
+$darkGreen: #8bc254;
 .mainContainer{
     width: 200px;
-    border: 2px solid $background;
+    border: 2px solid $darkGreen;
     margin: 20px;
 
     &:hover{
@@ -30,7 +26,7 @@ $background:#E5E5E5;
     }
 }
 
-.productTitle{
+.productName{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:bold;
     text-align: center;
