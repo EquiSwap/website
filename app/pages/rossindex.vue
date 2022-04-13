@@ -1,6 +1,6 @@
 <template>
   <div>
-      <SearchField />
+      <Header />
   </div>
 </template>
 
