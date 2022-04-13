@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img src="~/assets/images/equiswap_logo.png" alt="logo" class="image">
+        <FullPageCard />
     </div>
 </template>
 
@@ -10,6 +10,6 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
