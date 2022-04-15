@@ -32,11 +32,11 @@ section{
 
 
 .mainContainer{
-    width: 100%;
+    width: auto;
     max-width:1053px;
     height: 450px;
     background:url(~/assets/images/backgrounds/login.png) no-repeat center / cover;
-    background-position-y: 35%;
+    background-position-y: 30%;
     position:relative;
     left:15%;
     margin: 0 auto;
