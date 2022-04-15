@@ -19,9 +19,11 @@ export default({
 
 <style>
 img{
-    max-height: 7%;
-    max-width: 10%;
-    padding-left: 20px;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 75px;
+    padding-left: 10px;
 }
 
 .header{
@@ -38,12 +40,12 @@ flex-grow: 1;
 .text{
 font-style:normal;
 font-weight: 500;
-font-size: 21px;
+font-size: 20px;
 line-height: 20px;
 display: flex;
 align-items: center;
 color: #6D6D6D;
-padding: 20px;
+padding: 15px;
 }
 
 .searchbar{
