@@ -16,40 +16,21 @@
 </script>
 
 <style lang="scss" scoped>
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
-
-}
-section{
-    min-height:100vh;
-    width:100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
 
 
 .mainContainer{
-    width: auto;
-    max-width:1053px;
+    width: 100%;
     height: 450px;
-    background:url(~/assets/images/backgrounds/login.png) no-repeat center / cover;
-    background-position-y: 30%;
-    position:relative;
-    left:15%;
-    margin: 0 auto;
-    display: flex;
-    align-items: left;
-    justify-content:left;
+    background:url(~/assets/images/backgrounds/login.png) no-repeat center;
+    background-size:100%;
+    background-position: bottom 75% right 700%;
+
    
 }
 
 .mainContainer .right{
     position:relative;
-    left:-45%;
-    width:70%;
+    width:40%;
     min-height:500px;
     background-color: #fffbfb;
     display:flex;
@@ -57,7 +38,6 @@ section{
     justify-content: center;
     padding: 30px;
     color:black;
-    margin-right: 100px;
     clip-path: polygon(0% 0%, 100% 0, 100% 0, 66% 100%, 0% 100%);
 
 }
