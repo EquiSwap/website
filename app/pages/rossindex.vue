@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Header />
+      <NavbarAuth />
   </div>
 </template>
 
