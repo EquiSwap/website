@@ -17,6 +17,7 @@
 $background:#E5E5E5;
 $darkGreen: #8bc254;
 .mainContainer{
+
     width: 200px;
     border: 2px solid $darkGreen;
     margin: 20px;

@@ -1,10 +1,11 @@
 <template>
 <div>
   <div>
-    <Button />
+    <Navbar />
+    <Display />
+    <h1> Trending Categories </h1>
     <div>
       <TrendingCard />
-      <ProductCard />
     </div>
   </div>
 </div>
@@ -18,4 +19,6 @@ export default Vue.extend({
 })
 
 </script>
+
+
 
