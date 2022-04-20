@@ -1,7 +1,7 @@
 <template>
 <div class = "header">
 <img src="~/assets/images/equiswap_logo.png">
-<a class="text" href="#">Categories</a>
+<a class="text" href="/categories">Categories</a>
 <a class="text" href="/leaderboard">Leaderboard</a>
 <div class = "spacer"/>
 <div class = "searchbar"><SearchField /></div>
