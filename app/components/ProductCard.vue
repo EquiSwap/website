@@ -19,6 +19,7 @@ $darkGreen: #8bc254;
 .mainContainer{
 
     width: 200px;
+    padding: 20px;
     border: 2px solid $darkGreen;
     margin: 20px;
 

@@ -3,7 +3,7 @@
         <div class="right"> 
             <p class="heading1">
                 Trading with an emphasis on 
-                <h1 class="subheading1">Environment Change</h1> 
+                <span class="subheading1">Environmental Change</span> 
             </p>
             
         </div>
@@ -24,6 +24,7 @@
     background:url(~/assets/images/backgrounds/login.png) no-repeat center;
     background-size:100%;
     background-position: bottom 75% right 700%;
+    margin-bottom: 2%;
 
    
 }
@@ -43,19 +44,19 @@
 }
 
 .right .heading1 {
-    display: block;
-    font-family: 'DM Sans';
+    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif; 
+    width:75%;
     font-style: normal;
     font-weight: 700;
     font-size: 50px;
     line-height: 94px;
     color: #525252;
-    overflow: clip;
 
  }
 .subheading1 {
     display:inline-block;
-    font-family: 'DM Sans';
+    width:75%;
+    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif; 
     font-style: normal;
     font-weight: 700;
     font-size: 50px;
