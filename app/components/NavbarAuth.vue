@@ -1,11 +1,12 @@
 <template>
 <div class = "header">
-<img src="~/assets/images/equiswap_logo.png">
+<img class="logo" src="~/assets/images/equiswap_logo.png">
 <a class="text" href="#">Categories</a>
 <a class="text" href="/leaderboard">Leaderboard</a>
 <div class = "spacer"/>
 <div class = "searchbar"><SearchField /></div>
 <a class="text" href="l">Messages</a>
+<img class="user" src="~/assets/images/icons/defaultIcon.jpg">
 <div class = "button"><Button /></div>
 </div>
 </template>
@@ -17,11 +18,11 @@ export default({
 </script>
 
 <style>
-img{
+.logo{
     background-size: 300px;
     background-repeat: no-repeat;
     display: inline-block;
-    height: 75px;
+    height: 70px;
     padding-left: 10px;
 }
 
@@ -54,6 +55,11 @@ align-self: center;
 
 .button{
 align-self: center;
+}
+
+.user{
+    background-size: 300px;
+    height: 40px;
 }
 
 </style>

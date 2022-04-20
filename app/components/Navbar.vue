@@ -22,7 +22,7 @@ img{
     background-size: 300px;
     background-repeat: no-repeat;
     display: inline-block;
-    height: 75px;
+    height: 70px;
     padding-left: 10px;
 }
 
