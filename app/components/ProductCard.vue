@@ -19,12 +19,19 @@ $darkGreen: #8bc254;
 .mainContainer{
 
     width: 200px;
+    position: relative;
+    background: white;
     border: 2px solid $darkGreen;
     margin: 20px;
 
     &:hover{
         transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
     }
+}
+
+.left {
+    display: inline-block;
+    flex-grow: 1;
 }
 
 .productName{
