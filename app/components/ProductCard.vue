@@ -28,6 +28,11 @@ $darkGreen: #8bc254;
     }
 }
 
+.left {
+    display: inline-block;
+    flex-grow: 1;
+}
+
 .productName{
     font-family: Arial, Helvetica, sans-serif;
     font-weight:bold;

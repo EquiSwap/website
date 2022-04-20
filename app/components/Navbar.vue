@@ -1,7 +1,7 @@
 <template>
 <div class = "header">
 <img src="~/assets/images/equiswap_logo.png">
-<a class="text" href="#">Categories</a>
+<a class="text" href="/categories">Categories</a>
 <a class="text" href="/leaderboard">Leaderboard</a>
 <div class = "spacer"/>
 <div class = "searchbar"><SearchField /></div>
@@ -22,7 +22,7 @@ img{
     background-size: 300px;
     background-repeat: no-repeat;
     display: inline-block;
-    height: 75px;
+    height: 70px;
     padding-left: 10px;
 }
 

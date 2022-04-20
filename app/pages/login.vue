@@ -25,6 +25,7 @@
 .icon-left {
     width: 30%;
 }
+
 .center {
     display: grid;
     place-items: center;

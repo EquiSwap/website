@@ -1,6 +1,10 @@
 <template>
     <div>
-        <FullPageCard />
+        <Navbar />
+        <Header />
+        <FullPageCard>
+            <img src="~/assets/images/backgrounds/leaderboard.png" alt="leaderboard image" class="image" draggable="false">
+        </FullPageCard>
     </div>
 </template>
 
