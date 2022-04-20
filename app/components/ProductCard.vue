@@ -1,7 +1,7 @@
 <template>
     <div class="mainContainer">
-        <img src="~assets/images/books.jpg" alt="" class="image">
-        <p class="ProductName">Product 1</p>
+        <img src="~assets/images/cargoPants.png" alt="" class="image">
+        <h2 class="ProductName">Product 1</h2>
         <p class="ProductPrice">$12</p>
     </div>
 </template>
@@ -16,27 +16,35 @@
 <style lang="scss" scoped>
 $background:#E5E5E5;
 $darkGreen: #8bc254;
+
+
+
 .mainContainer{
-
-    width: 200px;
-    padding: 20px;
-    border: 2px solid $darkGreen;
+    display: inline-block;
+    background-color:white;
+    width: 300px;
+    padding: 10px;
     margin: 20px;
-
+    justify-content: center;
     &:hover{
         transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
     }
 }
 
-.left {
-    display: inline-block;
-    flex-grow: 1;
-}
-
-.productName{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:bold;
-    text-align: center;
-    font-size:25px
+    .mainContainer .image{
+        width:120px;
+        height:170px;
     }
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    font-size:20px
+    }
+
+p {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+}
 </style>
