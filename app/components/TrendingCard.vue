@@ -2,7 +2,10 @@
     <div class="mainContainer">
         <h1 class="heading1">Trending Categories</h1>
         <div v-for="n in numbers" class="imgContainer">
-            <img src="~assets/images/books.jpg" alt="" class="ProductImage">
+            <!-- <img src="~assets/images/books.jpg" alt="" class="ProductImage"> -->
+            <a href="/categories">
+                <img src="~assets/images/books.jpg" alt="" class="ProductImage"> 
+            </a>
             <h2 class="productTitle"> Books  </h2>
         </div>
     </div>

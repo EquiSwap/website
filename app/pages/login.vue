@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Navbar />
         <SignInCard>
             <Icon class="icon-left" />
             <h1 class="header-box center">Welcome back!</h1>

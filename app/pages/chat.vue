@@ -1,9 +1,6 @@
 <template>
     <div>
         <Navbar />
-        <FullPageCard>
-            <CategoriesCard />
-        </FullPageCard>
     </div>
 </template>
 

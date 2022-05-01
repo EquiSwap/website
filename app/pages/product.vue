@@ -2,7 +2,8 @@
     <div>
         <Navbar />
         <FullPageCard>
-            <CategoriesCard />
+            <img src="~assets/images/t-shirt.jpg" class="image"> 
+            <Button class="button"/>
         </FullPageCard>
     </div>
 </template>
@@ -14,5 +15,11 @@
 </script>
 
 <style lang="scss" scoped>
-
+.image {
+    height: auto;
+    margin-right: 5%;
+}
+.button {
+    align-self: center;
+}
 </style>

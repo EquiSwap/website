@@ -1,6 +1,8 @@
 <template>
 <div class = "header">
-<img src="~/assets/images/equiswap_logo.png">
+<a href="/">
+    <img src="~/assets/images/equiswap_logo.png"> 
+</a>
 <a class="text" href="/categories">Categories</a>
 <a class="text" href="/leaderboard">Leaderboard</a>
 <div class = "spacer"/>

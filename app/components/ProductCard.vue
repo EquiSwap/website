@@ -1,6 +1,8 @@
 <template>
     <div class="mainContainer">
-        <img src="~assets/images/cargoPants.png" alt="" class="image">
+        <a href="/product">
+            <img src="~assets/images/t-shirt.jpg" class="image"> 
+        </a>
         <h2 class="ProductName">Product 1</h2>
         <p class="ProductPrice">$12</p>
     </div>
@@ -22,7 +24,7 @@ $darkGreen: #8bc254;
 .mainContainer{
     display: inline-block;
     background-color:white;
-    width: 300px;
+    width: 30%;
     padding: 10px;
     margin: 20px;
     justify-content: center;
@@ -32,19 +34,20 @@ $darkGreen: #8bc254;
 }
 
     .mainContainer .image{
-        width:120px;
-        height:170px;
+        width: 30%;
+        height: 30%;
+        padding: 10px;
     }
 
 h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    text-align: left;
-    font-size:20px
+    // text-align: left;
+    font-size: 20px
     }
 
 p {
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:17px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
 }
 </style>

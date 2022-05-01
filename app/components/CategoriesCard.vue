@@ -1,10 +1,9 @@
 <template>
     <div>
-        <div class="left">
-            <p>Categories</p>
-            <p>Shirts</p>
-        </div>
         <div class="right">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />
