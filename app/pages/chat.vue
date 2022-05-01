@@ -1,6 +1,7 @@
 <template>
     <div>
         <Navbar />
+        <UserDisplay />
     </div>
 </template>
 
