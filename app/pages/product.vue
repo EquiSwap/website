@@ -3,7 +3,7 @@
         <Navbar />
         <FullPageCard>
             <img src="~assets/images/t-shirt.jpg" class="image"> 
-            <Button class="button"/>
+            <DescriptionBox />
         </FullPageCard>
     </div>
 </template>
@@ -16,10 +16,8 @@
 
 <style lang="scss" scoped>
 .image {
-    height: auto;
-    margin-right: 5%;
-}
-.button {
-    align-self: center;
+    height: 80%;
+    width: auto;
+    padding: 120px;
 }
 </style>

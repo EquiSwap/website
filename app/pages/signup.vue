@@ -3,7 +3,7 @@
         <Navbar />
         <SignInCard>
             <Icon class="icon-left" />
-            <h1 class="header-box center">Hey there!</h1>
+            <h1 class="center">Hey there!</h1>
             <p class="center">Please create an account to continue...</p>
             <TextField />
             <TextField />
@@ -18,10 +18,14 @@
 </script>
 
 <style lang="scss" scoped>
-.header-box {
-    padding: 10px;
-    font-size: 30px;
+h1 {
+    padding: 50px;
+    font-size: 40px;
     font-weight: bold;
+}
+
+p {
+    font-size: 20px;
 }
 
 .icon-left {

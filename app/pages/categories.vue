@@ -2,6 +2,7 @@
     <div>
         <Navbar />
         <FullPageCard>
+            <CategorySideBar />
             <CategoriesCard />
         </FullPageCard>
     </div>

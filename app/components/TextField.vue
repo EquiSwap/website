@@ -25,7 +25,7 @@
         width: 350px;
         border-radius: 7px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(0%, -50%);
     }
 
     .text-field-icon {
