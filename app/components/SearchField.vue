@@ -37,7 +37,7 @@ input {
 
 .grid {
   inline-size: 90%;
-  max-inline-size: 302px;
+  max-inline-size: 100%;
 }
 
 .search__field {

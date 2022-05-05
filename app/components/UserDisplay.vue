@@ -1,7 +1,7 @@
 <template>
     <div class="mainContainer">
         <div class="imageBox">  </div>
-        <h1> user </h1>
+        <h1> User </h1>
         <p>hello</p>
     </div>
 </template>
@@ -15,37 +15,35 @@
 <style lang="scss" scoped>
 .mainContainer{
     position: relative;
-    width: 350px;
-    height: 87px;
-    background-color: rgb(232, 207, 207);
-    display:inline-block;
-    border-radius: 0px 8px;
-    margin: 10px 5px 10px 5px;
+    width: 100%;
+    height: 85px;
+    background-color: transparent;
+    // display:inline-block;
+    margin: 1px 0px 1px 0px;
     text-align: left;
 
 }
 .mainContainer .imageBox {
-    height:75px;
-    width: 75px; 
-    background: rgb(19, 7, 7);
-    margin: 5px;
+    height:70px;
+    width: 70px; 
+    background-color: rgb(19, 7, 7);
+    margin: 8px 0px 0px 5px;
     display: inline-block;
     border-radius: 50%;
-    background-image: url("~assets/user/user.png")
 }
 
 h1 {
     position: absolute;
-    top: 0px;
+    top: 10px;
     display: inline-block;
-    font-size: 30px;  
+    font-size: 20px;  
     margin-left: 10px;
 }
 p {
     display: inline-block;
-    margin-left:10px;
+    margin-left:11px;
     position: absolute;
-    margin-top: 40px;
+    margin-top: 37px;
 
 }
 

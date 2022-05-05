@@ -1,12 +1,13 @@
 <template>
     <div>
         <Navbar />
-        <UserDisplay />
+        <Inbox />
     </div>
 </template>
 
 <script>
     export default {
+
         
     }
 </script>
