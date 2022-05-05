@@ -24,10 +24,10 @@ $darkGreen: #8bc254;
 .mainContainer{
     display: inline-block;
     background-color:white;
-    width: 30%;
+    width: auto;
     padding: 10px;
     margin: 20px;
-    justify-content: center;
+    text-align: center;
     &:hover{
         transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
     }
