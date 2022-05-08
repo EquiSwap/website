@@ -1,6 +1,7 @@
 <template>
     <div>
-        <button class="button" role="button">←</button>
+        <!-- Change link to be link of previous page -->
+        <a class="button" href="/categories"><button role="button">←</button></a>
     </div>
 </template>
 

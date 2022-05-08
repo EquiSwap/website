@@ -11,7 +11,7 @@
             Bottega Veneta takes you on a colorful journey with its latest offerings, such as this bold tomato-red cotton T-shirt. The classic crewneck style has slightly dropped shoulders that enhance its relaxed fit. Our styling advice is this: wear it with everything you own – it will slot seamlessly into your everyday rotations.
             Bottega Veneta takes you on a colorful journey with its latest offerings, such as this bold tomato-red cotton T-shirt. The classic crewneck style has slightly dropped shoulders that enhance its relaxed fit. Our styling advice is this: wear it with everything you own – it will slot seamlessly into your everyday rotations.
         </p>
-        <Button class="button"/>
+        <slot></slot>
     </div>
 </template>
 
@@ -33,21 +33,16 @@ h2 {
 
 p {
     font-size: 15px;
+    text-align: left;
 }
 
 .box {
     background-color: white;
-    padding: 150px;
+    // padding: 150px;
 }
 
-.button {
-    // margin: 100px;
-    display: grid;
-    place-items: center;
-            top: 50%;
-        left: 50%;
-        transform: translate(70%, 50%);
-    width: 40%;
-    align-self: center;
-}
+// .contents {
+//     padding: 150px;
+// }
+
 </style>

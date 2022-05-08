@@ -2,9 +2,15 @@
     <div>
         <Navbar />
         <FullPageCard>
-            <BackButton />
-            <img src="~assets/images/t-shirt.jpg" class="image"> 
-            <DescriptionBox />
+            <DescriptionBox>
+                <div class="inline">
+                    <Button />
+                    <p>OR</p>
+                    <Button />
+                </div>
+            </DescriptionBox>
+            <img src="~assets/images/t-shirt.jpg" class="image">
+            <ProductSideBar />
         </FullPageCard>
     </div>
 </template>
@@ -17,8 +23,14 @@
 
 <style lang="scss" scoped>
 .image {
-    height: 80%;
+    height: 70%;
     width: auto;
-    padding: 120px;
+    // padding: 120px;
+    margin-top: 90px;
+    border: 2px solid #555;
+}
+
+.inline {
+    display: flex;
 }
 </style>
