@@ -30,12 +30,12 @@
 
 <style lang="scss" scoped>
 h2 {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 p {
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .container-box {

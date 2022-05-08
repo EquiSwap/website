@@ -75,7 +75,7 @@ h3 {
 }
 
 .card {
-    width: 900px;
+    width: 50%;
     padding: 30px;
     padding-left: 120px;
     padding-right: 120px;
@@ -96,6 +96,7 @@ h3 {
 .clearfix{
     clear:both
 }
+
 
 // .center {
 //     margin-left: 50%;
