@@ -1,9 +1,9 @@
 <template>
     <div class="box">
-        <ProfilePic />
-        <p>User 1</p>
-        <p>8</p>
-        <p>600</p>
+        <p>PFP</p>
+        <p>Name</p>
+        <p>Number of Swaps</p>
+        <p>Eco Score</p>
     </div>
 </template>
 
@@ -22,6 +22,6 @@
 
 p {
     font-weight: bold;
-    // padding: 0px 30px 0px 30px;
+    padding: 0px 30px 0px 30px;
 }
 </style>

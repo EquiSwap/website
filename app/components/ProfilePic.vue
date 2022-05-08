@@ -36,8 +36,8 @@
   // display:inline-block;
   // vertical-align:middle;
 
-    height:200px;
-    width: 200px; 
+    height: 70px;
+    width: 70px; 
     background-color: rgb(19, 7, 7);
     margin: 8px 0px 0px 5px;
     display: inline-block;

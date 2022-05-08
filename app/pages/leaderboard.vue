@@ -1,13 +1,27 @@
 <template>
     <div>
         <Navbar />
-        <Header />
-        <FullPageCard>
-            <img src="~/assets/images/backgrounds/leaderboard.png" alt="leaderboard image" class="image" draggable="false">
-            <!-- <LeaderboardEntry />
+        <LeaderboardFullPageCard>
+            <BackButton />
+            <img src="~/assets/images/backgrounds/leaderboard.png" alt="leaderboard image" draggable="false">
+            <LeaderboardColumns />
             <LeaderboardEntry />
-            <LeaderboardEntry /> -->
-        </FullPageCard>
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+            <LeaderboardEntry />
+
+        </LeaderboardFullPageCard>
+
     </div>
 </template>
 
@@ -19,7 +33,8 @@
 
 <style lang="scss" scoped>
 img {
+    // position: relative;
     width: 100%;
-    height: 20%;
+    height: auto;
 }
 </style>

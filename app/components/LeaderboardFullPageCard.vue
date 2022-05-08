@@ -1,6 +1,6 @@
 <template>
     <div class="contain">
-        <div class="header">
+        <div class="head">
             <slot />
         </div>
     </div>
@@ -15,7 +15,7 @@
 <style lang="scss" scoped>
 
 .contain {
-    display: flex;
+    display: grid;
     margin: auto;
     width: 90%;
     left: 50%;
@@ -25,7 +25,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.header {
+.head {
     width: 100%;
     object-fit: cover;
 }
