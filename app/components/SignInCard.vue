@@ -28,8 +28,8 @@ $loginBorderRadius: 25px;
     position: absolute;
     display: flex;
     margin: auto;
-    width: 2000px;
-    height: 1000px;
+    width: 1300px;
+    height: 700px;
     left: 50%;
     top: 50%;
 

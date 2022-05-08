@@ -1,6 +1,6 @@
 <template>
     <div class="circular--landscape">
-        <img src="~assets/images/pfp.jpg" alt="Profile Icon">
+        <!-- <img src="~assets/images/pfp.jpg" alt="Profile Icon"> -->
     </div>
 </template>
 
@@ -26,15 +26,22 @@
 }
 
 .circular--landscape {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: rgb(255, 255, 255);
+  // width: 200px;
+  // height: 200px;
+  // border-radius: 50%;
+  // overflow: hidden;
+  // background-color: rgb(255, 255, 255);
   
-  /*for demo*/
-  display:inline-block;
-  vertical-align:middle;
+  // /*for demo*/
+  // display:inline-block;
+  // vertical-align:middle;
+
+    height:200px;
+    width: 200px; 
+    background-color: rgb(19, 7, 7);
+    margin: 8px 0px 0px 5px;
+    display: inline-block;
+    border-radius: 50%;
 }
 
 .circular--landscape img {
