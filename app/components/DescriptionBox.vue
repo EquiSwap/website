@@ -23,16 +23,16 @@
 
 <style lang="scss" scoped>
 h1 {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 20px;
 }
 
 p {
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .box {

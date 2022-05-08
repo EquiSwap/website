@@ -43,5 +43,6 @@ p {
     border: 5px;
     padding: 30px 100px 100px 50px;
     text-align: left;
+    box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.1);;
 }
 </style>

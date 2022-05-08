@@ -4,7 +4,7 @@
             <img src="~assets/images/t-shirt.jpg" class="image"> 
         </a>
         <h2 class="ProductName">Product 1</h2>
-        <p class="ProductPrice">$12</p>
+        <p class="ProductPrice">Size medium</p>
     </div>
 </template>
 

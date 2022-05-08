@@ -2,6 +2,7 @@
     <div>
         <Navbar />
         <FullPageCard>
+            <BackButton />
             <img src="~assets/images/t-shirt.jpg" class="image"> 
             <DescriptionBox />
         </FullPageCard>
