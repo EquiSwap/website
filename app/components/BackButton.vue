@@ -1,7 +1,6 @@
 <template>
     <div>
-        <!-- Change link to be link of previous page -->
-        <a class="button" href="/categories"><button role="button">←</button></a>
+        <a class="button" href="javascript:history.back()"><button role="button">←</button></a>
     </div>
 </template>
 
