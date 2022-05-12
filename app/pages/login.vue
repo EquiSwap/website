@@ -4,8 +4,10 @@
         <SignInCard>
             <Icon class="icon-left" />
             <h1 class="center">Welcome back!</h1>
-            <p class="center">Please log in to continue...</p>
+            <h2 class="center">Please log in to continue...</h2>
+            <p>Email address</p>
             <TextField />
+            <p>Password</p>
             <TextField />
             <Button class="center" />
         </SignInCard>
@@ -23,7 +25,7 @@ h1 {
     font-weight: bold;
 }
 
-p {
+h2 {
     font-size: 20px;
 }
 
