@@ -29,8 +29,11 @@
     [framework.database]
         enabled = true
         type = "postgresql"
-        # database = "cinnamon-example"
-        # clientUrl = "mongodb://localhost:27017/cinnamon-example"
+        host = "localhost"
+        port = 5432
+        database = "equiswap"
+        username = "equiswap"
+        password = "equiswap"
 
     # Framework Directory Structure Settings.
     # Controllers are automatically loaded from the controllers directory specified in this section – and likewise

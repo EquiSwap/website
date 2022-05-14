@@ -1,11 +1,15 @@
-import { Controller, Context, Route, Method } from "@apollosoftwarexyz/cinnamon";
+import Cinnamon, { Controller, Context, Route, Method } from '@apollosoftwarexyz/cinnamon';
 
-@Controller("/")
+@Controller('/')
 export default class IndexController {
 
-    @Route(Method.GET, "/")
+    @Route(Method.GET, '/')
     public async index(ctx: Context) : Promise<void> {
-        ctx.body = {hello: true};
+        if (Cinnamon.defaultInstance.inDevMode) {
+            return ctx.success({
+                development: true
+            });
+        } else ctx.redirect('https://equiswap.org/');
     }
 
 }

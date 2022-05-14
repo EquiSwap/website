@@ -2,7 +2,7 @@
 <div>
   <div>
     <Navbar />
-    <Display />         
+    <Display />
     <TrendingCard />
   </div>
 </div>
@@ -13,10 +13,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage'
-
-})
-
-
+});
 </script>
 
 
