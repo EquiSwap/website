@@ -1,18 +1,17 @@
 <template>
     <div>
-        <Navbar />
         <Inbox class="inbox"/>
         <div class="side">
             <ChatBoxSide class ="background"/>
         </div>
-         
+
     </div>
 </template>
 
 <script>
     export default {
 
-        
+
     }
 </script>
 

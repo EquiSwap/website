@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <FullPageCard>
           <MakeOfferCard>
             <img src="~assets/images/t-shirt.jpg" class="image">
@@ -17,7 +16,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 

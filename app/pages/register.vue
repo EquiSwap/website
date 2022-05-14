@@ -4,16 +4,17 @@
             <nuxt-link to="/"><BrandIcon class="icon-left"/></nuxt-link>
             <br>
             <div class="content">
-                <h1>Welcome back!</h1>
-                <h2>Please log in to continue...</h2>
+                <h1>Hey there!</h1>
+                <h2>Please create an account to continue...</h2>
                 <br>
                 <TextField label="Username" icon="user" />
+                <TextField label="Email Address" icon="email" />
                 <TextField label="Password" type="password" icon="lock" />
-                <Button block class="center">Log In</Button>
+                <Button block class="center">Sign Up</Button>
                 <br>
                 <div class="promo">
-                    <p>Don't have an account yet?</p>
-                    <p><Link to="/register">Create an account</Link></p>
+                    <p>Already have an account?</p>
+                    <p><Link to="/login">Log in to your account</Link></p>
                 </div>
             </div>
         </SignInCard>

@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <FullPageCard>
             <div class="product-wrapper">
                 <DescriptionBox>
@@ -19,7 +18,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 

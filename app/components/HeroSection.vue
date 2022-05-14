@@ -2,7 +2,7 @@
     <div class="mainContainer">
         <div class="left">
             <p class="heading">
-                Trading with an emphasis on
+                Trading with an <i>emphasis</i> on
                 <span class="emphasis">Environmental Change</span>.
             </p>
         </div>
@@ -66,6 +66,7 @@
         text-align: left;
 
         .heading {
+            width: 60%;
             margin: 0 20% 0 5%;
             padding: 0;
         }

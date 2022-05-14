@@ -6,10 +6,6 @@
 
 <script>
     export default {
-        
+        name: 'BrandIcon'
     }
 </script>
-
-<style>
-
-</style>

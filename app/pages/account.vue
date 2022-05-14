@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <h1>Account Settings</h1>
         <div class="card">
         <AccountCard>
@@ -50,7 +49,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 

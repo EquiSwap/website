@@ -2,19 +2,19 @@
     <div>
         <div class="header-spacer" />
         <div class="header">
-            <a href="/">
+            <nuxt-link to="/">
                 <img class="logo" src="~/assets/images/equiswap_logo.png" alt="EquiSwap Logo" role="presentation">
-            </a>
-            <a href="/categories">Categories</a>
-            <a href="/leaderboard">Leaderboard</a>
+            </nuxt-link>
+            <nuxt-link to="/categories">Categories</nuxt-link>
+            <nuxt-link to="/leaderboard">Leaderboard</nuxt-link>
             <div class="spacer"/>
             <div class="searchbar">
                 <SearchField />
             </div>
-            <a href="/login">Login</a>
-            <a href="/signup">Register</a>
+            <nuxt-link to="/login">Login</nuxt-link>
+            <nuxt-link to="/register">Register</nuxt-link>
             <div class="button">
-                <Button>View Cart</Button>
+                <Button>My Cart</Button>
             </div>
         </div>
     </div>

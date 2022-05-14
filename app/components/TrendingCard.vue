@@ -1,74 +1,63 @@
 <template>
-    <div class="mainContainer">
+    <div class="trendingCardContainer">
         <h1 class="heading1">Trending Categories</h1>
-        <div v-for="n in numbers" class="imgContainer">
-            <!-- <img src="~assets/images/books.jpg" alt="" class="ProductImage"> -->
-            <a href="/categories">
-                <img src="~assets/images/books.jpg" alt="" class="ProductImage"> 
-            </a>
-            <h2 class="productTitle"> Books  </h2>
-        </div>
+
+        <nuxt-link to="/categories" :key="n" v-for="n in numbers">
+            <div class="imgContainer">
+                <img src="~assets/images/books.jpg" alt="" class="ProductImage">
+                <h2 class="productTitle">Books</h2>
+            </div>
+        </nuxt-link>
     </div>
 </template>
 
 <script>
-    export default {
-data() {
-  return {
-    numbers: [1, 2, 3]
-  }
-}
-        
+export default {
+    data() {
+        return {
+            numbers: [1, 2, 3]
+        }
     }
+
+}
 </script>
 
 <style lang="scss" scoped>
-
-$background:#E5E5E5;
-
-
-.mainContainer{
-    width:auto;
-    position: static;
-    padding:10px;
-    padding-left:15%;
-    padding-right:15%;
-    border: 2px solid $background;
+.trendingCardContainer {
+    padding: 20px 15% 20px;
     text-align: center;
 
-
-    &:hover{
-        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    }
-}
-    h1{
-        font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif; 
-        font-weight: bold;
-        line-height: 1;
-        font-size: 50px;
-        margin-bottom:15px;
-        text-align: center;
-    }
-
-    .mainContainer .imgContainer{
-        display: inline-block;
+    .imgContainer {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         background-color: white;
         width: 230px;
         height: 230px;
         margin: 30px;
         border-radius: 5px;
-    }
+        box-shadow: 0 0 55px 10px rgba(0, 0, 0, 0.05);
 
-    .mainContainer .imgContainer .ProductImage{
-        height: 200px;
-        width: 200px;
-        padding:10px;
+        .ProductImage {
+            height: 150px;
+            width: 150px;
+        }
     }
+}
 
-        .productTitle{
-            font-family: sans-serif, Arial;
-            font-weight:bold;
-            text-align: center;
-            font-size:25px
-            }
+h1 {
+    font-weight: 700;
+    line-height: 1;
+    font-size: 50px;
+    padding: 50px 0 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.productTitle {
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
 </style>

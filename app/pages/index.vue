@@ -1,7 +1,6 @@
 <template>
 <div>
   <div>
-    <Navbar />
     <HeroSection />
     <TrendingCard />
   </div>

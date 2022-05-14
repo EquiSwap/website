@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <FullPageCard>
             <CategorySideBar />
             <CategoriesCard />
@@ -10,7 +9,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 

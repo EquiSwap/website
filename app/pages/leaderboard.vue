@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
         <LeaderboardFullPageCard>
             <BackButton />
             <img src="~/assets/images/backgrounds/leaderboard.png" alt="leaderboard image" draggable="false">
@@ -27,7 +26,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 
