@@ -12,13 +12,15 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: true },
+      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/main.css',
     '~/assets/css/main.scss'
   ],
 

@@ -9,7 +9,7 @@
             <TextField />
             <p>Password</p>
             <TextField />
-            <Button class="center" />
+          <Button class="center">Log In</Button>
         </SignInCard>
     </div>
 </template>

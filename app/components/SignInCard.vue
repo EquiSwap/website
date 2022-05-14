@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 
@@ -45,7 +45,7 @@ $loginBorderRadius: 25px;
     flex-grow: 1;
 }
 
-.right {
+.left {
     position: relative;
     right: 0;
     top: 0;

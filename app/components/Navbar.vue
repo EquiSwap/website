@@ -1,62 +1,70 @@
 <template>
-<div class = "header">
-<a href="/">
-    <img src="~/assets/images/equiswap_logo.png"> 
-</a>
-<a class="text" href="/categories">Categories</a>
-<a class="text" href="/leaderboard">Leaderboard</a>
-<div class = "spacer"/>
-<div class = "searchbar"><SearchField /></div>
-<a class="text" href="/login">Login</a>
-<a class="text" href="/signup">Register</a>
-<div class = "button"><Button /></div>
-</div>
+    <div>
+        <div class="header-spacer" />
+        <div class="header">
+            <a href="/">
+                <img class="logo" src="~/assets/images/equiswap_logo.png" alt="EquiSwap Logo" role="presentation">
+            </a>
+            <a href="/categories">Categories</a>
+            <a href="/leaderboard">Leaderboard</a>
+            <div class="spacer"/>
+            <div class="searchbar">
+                <SearchField />
+            </div>
+            <a href="/login">Login</a>
+            <a href="/signup">Register</a>
+            <div class="button">
+                <Button>View Cart</Button>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
-export default({
-  name: 'Navbar'
+export default ({
+    name: 'Navbar'
 })
 </script>
 
-<style>
-img{
+<style lang="scss" scoped>
+.header-spacer {
+    height: 90px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    height: 90px;
+
+    a {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        color: #6D6D6D;
+        padding: 0 15px;
+    }
+}
+
+img.logo {
     background-size: 300px;
     background-repeat: no-repeat;
     display: inline-block;
-    height: 70px;
-    padding-left: 10px;
+    height: 60px;
+    transform: translate(0, -2px);
 }
 
-.header{
-display:flex;
-flex-direction:row;
-background: #ffffff;
-text-align: center;
-}
-
-.spacer{
-flex-grow: 1;
-}
-
-.text{
-font-style:normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 20px;
-display: flex;
-align-items: center;
-color: #6D6D6D;
-padding: 15px;
-}
-
-.searchbar{
-align-self: center;
-
-}
-
-.button{
-align-self: center;
+.spacer {
+    flex-grow: 1;
 }
 
 </style>

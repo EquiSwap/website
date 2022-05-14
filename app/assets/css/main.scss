@@ -1,6 +1,15 @@
+:root {
+    --color: #9bda5d;
+    --color-dark: #8bc254;
+}
+
 body {
     background: #E5E5E5;
-    // Fonts
-    font-family: 'DM Sans', sans-serif;
     color: #585858;
+
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+input {
+  font-family: 'DM Sans', sans-serif !important;
 }

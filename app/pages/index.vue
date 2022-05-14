@@ -2,7 +2,7 @@
 <div>
   <div>
     <Navbar />
-    <Display />
+    <HeroSection />
     <TrendingCard />
   </div>
 </div>
