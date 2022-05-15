@@ -35,6 +35,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@apollosoftwarexyz/cinnamon-plugin-cors@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@apollosoftwarexyz/cinnamon-plugin-cors@npm:1.0.1"
+  peerDependencies:
+    "@apollosoftwarexyz/cinnamon": ^0.0.x
+  checksum: 16118f940405209a962c8fe983c39719fccbc59636352d52ac4188ac11bede37000d080f03cdcb0cd8c1ff56a6c580da1c9c8f52b45faa5a4efce71dc84704c1
+  languageName: node
+  linkType: hard
+
 "@apollosoftwarexyz/cinnamon-validator@npm:^0.1.0-beta.1":
   version: 0.1.0-beta.1
   resolution: "@apollosoftwarexyz/cinnamon-validator@npm:0.1.0-beta.1"
@@ -77,6 +86,31 @@ __metadata:
     toml: ^3.0.0
     uuid: ^8.3.2
   checksum: 54b4ad28355131f8f552bb9b5f535a6836ae7cdba8384b211fcaa5dd916ccd9f8e7596c9ed999229d2613b41a19914fda1d4b73d8d362d9ff7bfc932c6f1a1e9
+  languageName: node
+  linkType: hard
+
+"@apollosoftwarexyz/cinnamon@npm:^0.1.0-beta.2":
+  version: 0.1.0-beta.2
+  resolution: "@apollosoftwarexyz/cinnamon@npm:0.1.0-beta.2"
+  dependencies:
+    "@apollosoftwarexyz/cinnamon-internals": ^0.1.0-beta.1
+    "@apollosoftwarexyz/cinnamon-validator": ^0.1.0-beta.1
+    "@apollosoftwarexyz/cinnamon-youch": ^3.2.0
+    "@types/formidable": ^2.0.4
+    "@types/koa": ^2.13.4
+    "@types/node": ^17.0.23
+    "@types/qs": ^6.9.7
+    chalk: ^4.1.2
+    chokidar: ^3.5.3
+    co: ^4.6.0
+    formidable: ^2.0.1
+    iconv-lite: ^0.6.3
+    koa: ^2.13.4
+    koa-router: ^10.1.1
+    qs: ^6.10.3
+    toml: ^3.0.0
+    uuid: ^8.3.2
+  checksum: 9a542289761e3b4e0a95385505abab0c9911d71b886af3bf0f88ba79a61e00e8c9306ea2185aae62f41e8bd94114104ae532c9e66f7023c04bf78e5b84320198
   languageName: node
   linkType: hard
 
@@ -2424,9 +2458,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "group02-server@workspace:."
   dependencies:
-    "@apollosoftwarexyz/cinnamon": ^0.1.0-beta.1
+    "@apollosoftwarexyz/cinnamon": ^0.1.0-beta.2
     "@apollosoftwarexyz/cinnamon-database": ^0.1.0-beta.1
     "@apollosoftwarexyz/cinnamon-plugin-asl-protocol": ^2.0.0
+    "@apollosoftwarexyz/cinnamon-plugin-cors": ^1.0.1
     "@apollosoftwarexyz/cinnamon-validator": ^0.1.0-beta.1
     "@mikro-orm/cli": ^5.1.3
     "@mikro-orm/core": ^5.1.3

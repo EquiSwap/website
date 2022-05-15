@@ -13,7 +13,7 @@
 <style lang="scss" scoped>
 .mainContainer {
     width: 100%;
-    height: 500px;
+    height: 600px;
     position: relative;
 
     .background {
@@ -53,7 +53,7 @@
         top: 0;
         right: 0;
         bottom: 0;
-        height: 500px;
+        height: 100%;
         width: 70%;
         object-fit: cover;
         object-position: top right;

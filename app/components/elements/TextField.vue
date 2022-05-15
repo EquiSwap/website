@@ -1,8 +1,8 @@
 <template>
-    <div class="text-field-wrapper">
+    <div class="text-field-wrapper" :class="className">
         <span class="text-field-label" v-if="label && !hasValue">{{ label }}</span>
         <span class="text-field-icon" v-if="icon"><Icon :of="icon" /></span>
-        <input class="text-field" :type="type" :required="required" :aria-required="required" :class="className" v-model="currentValue">
+        <input class="text-field" :disabled="disabled" :type="type" :required="required" :aria-required="required" v-model="currentValue">
     </div>
 </template>
 
@@ -32,7 +32,14 @@ export default {
         required: {
             type: Boolean,
             default: false
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
         }
+    },
+    mounted() {
+        this.currentValue = this.value;
     },
     computed: {
         hasValue () {
@@ -41,7 +48,8 @@ export default {
         className () {
             return {
                 'has-value': this.hasValue,
-                invalid: this.isValid
+                invalid: this.isValid,
+                'has-icon': this.icon
             }
         },
         isValid () {
@@ -75,9 +83,14 @@ export default {
     .text-field {
         font-weight: 500;
         background: #EBEBEB;
-        padding: 10px 15px 10px 35px;
+        padding: 10px 15px 10px 15px;
         border-radius: 7px;
         width: 100%;
+
+        &[disabled] {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
     }
 
     .text-field-label {
@@ -85,8 +98,10 @@ export default {
         pointer-events: none;
         top: 50%;
         transform: translate(0, -50%);
-        left: 35px;
+        left: 15px;
         color: #A3A3A3;
+        user-select: none !important;
+        -webkit-user-select: none !important;
     }
 
     .text-field-icon {
@@ -96,10 +111,22 @@ export default {
         left: 10px;
         pointer-events: none;
         color: #6D6D6D;
+        user-select: none !important;
+        -webkit-user-select: none !important;
 
         svg {
             height: 18px;
             width: 18px;
+        }
+    }
+
+    &.has-icon {
+        .text-field {
+            padding-left: 35px;
+        }
+
+        .text-field-label {
+            left: 35px;
         }
     }
 }

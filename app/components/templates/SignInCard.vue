@@ -66,6 +66,11 @@ $loginBorderRadius: 18px;
         font-size: 18px;
     }
 
+    .error {
+        color: #FF2D3F;
+        width: 90%;
+    }
+
     .content {
         padding: 0 40px;
         flex-grow: 1;

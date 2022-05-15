@@ -1974,6 +1974,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxtjs/dotenv@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@nuxtjs/dotenv@npm:1.4.1"
+  dependencies:
+    consola: ^2.10.1
+    dotenv: ^8.1.0
+  checksum: 890b9fdf70473bb4085a1c6f1bd4ca272e4b9e7abec6253f233d5f717d4f23ecde8f6b85290d540427aaef0ffb0a38662f223c903b47656a599f4a0d317934f7
+  languageName: node
+  linkType: hard
+
 "@nuxtjs/proxy@npm:^2.1.0":
   version: 2.1.0
   resolution: "@nuxtjs/proxy@npm:2.1.0"
@@ -2271,6 +2281,13 @@ __metadata:
   dependencies:
     "@types/istanbul-lib-report": "*"
   checksum: f1ad54bc68f37f60b30c7915886b92f86b847033e597f9b34f2415acdbe5ed742fa559a0a40050d74cdba3b6a63c342cac1f3a64dba5b68b66a6941f4abd7903
+  languageName: node
+  linkType: hard
+
+"@types/js-cookie@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@types/js-cookie@npm:3.0.2"
+  checksum: 7ab964288dd26373e134ed0bcde4a7dbea7e6f5de1805e2d1e48eac847e89a0e7f5fdc9164c37931680ec97c6e6e5a73e3e4039e0d08527c2e21badd7bee62d1
   languageName: node
   linkType: hard
 
@@ -4255,7 +4272,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"consola@npm:^2.10.0, consola@npm:^2.15.0, consola@npm:^2.15.3, consola@npm:^2.6.0, consola@npm:^2.9.0":
+"consola@npm:^2.10.0, consola@npm:^2.10.1, consola@npm:^2.15.0, consola@npm:^2.15.3, consola@npm:^2.6.0, consola@npm:^2.9.0":
   version: 2.15.3
   resolution: "consola@npm:2.15.3"
   checksum: 8ef7a09b703ec67ac5c389a372a33b6dc97eda6c9876443a60d76a3076eea0259e7f67a4e54fd5a52f97df73690822d090cf8b7e102b5761348afef7c6d03e28
@@ -5048,6 +5065,13 @@ __metadata:
   version: 14.3.2
   resolution: "dotenv@npm:14.3.2"
   checksum: 86c06758915d6facc35275f4a7fafc16705b6f3b44befaa8abca91367991efc8ff8db5437d3cc14778231d19fb97610fe82d60f8a53ba723cdb69fe4171439aa
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^8.1.0":
+  version: 8.6.0
+  resolution: "dotenv@npm:8.6.0"
+  checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
   languageName: node
   linkType: hard
 
@@ -6089,9 +6113,12 @@ __metadata:
     "@nuxt/types": ^2.15.8
     "@nuxt/typescript-build": ^2.1.0
     "@nuxtjs/axios": ^5.13.6
+    "@nuxtjs/dotenv": ^1.4.1
     "@nuxtjs/pwa": ^3.3.5
     "@playwright/test": ^1.20.2
+    "@types/js-cookie": ^3.0.2
     core-js: ^3.19.3
+    js-cookie: ^3.0.1
     nuxt: ^2.15.8
     nuxt-windicss: ^2
     playwright: ^1.20.2
@@ -6100,6 +6127,9 @@ __metadata:
     vue: ^2.6.14
     vue-server-renderer: ^2.6.14
     vue-template-compiler: ^2.6.14
+    vue-toastification: ^1.7.14
+    vuex-module-decorators: ^2.0.0
+    vuex-persistedstate: ^4.1.0
     webpack: ^4.46.0
   languageName: unknown
   linkType: soft
@@ -7229,6 +7259,13 @@ __metadata:
   version: 0.4.3
   resolution: "jpeg-js@npm:0.4.3"
   checksum: 9e5bacc9135efa7da340b62e81fa56fab0c8516ef617228758132af5b7d31b516cc6e1500cdffb82d3161629be341be980099f2b37eb76b81e26db6e3e848c77
+  languageName: node
+  linkType: hard
+
+"js-cookie@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "js-cookie@npm:3.0.1"
+  checksum: bb48de67e2a6bd1ae3dfd6b2d5a167c33dd0c5a37e909206161eb0358c98f17cb55acd55827a58e9eea3630d89444e7479f7938ef4420dda443218b8c434a4c3
   languageName: node
   linkType: hard
 
@@ -10899,6 +10936,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"shvl@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "shvl@npm:2.0.3"
+  checksum: 07d93a9dd92f966b1e506d479d841243d7296902673f8641927c8624fec700742298063d06d2f1b6cf52b546f015a3c4bb5900a910fc0181c02b73bf4791223d
+  languageName: node
+  linkType: hard
+
 "side-channel@npm:^1.0.4":
   version: 1.0.4
   resolution: "side-channel@npm:1.0.4"
@@ -12239,10 +12283,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-toastification@npm:^1.7.14":
+  version: 1.7.14
+  resolution: "vue-toastification@npm:1.7.14"
+  peerDependencies:
+    vue: ^2.0.0
+  checksum: 1a95ba3d1bb4a387ab938e2f61568950f9a3bb5a8e4009d856bd65d1da33827b5dc2bb0c181bc269391ca6389d69cc1541d809eca1d28613a0b0b440c6d1082b
+  languageName: node
+  linkType: hard
+
 "vue@npm:^2.6.12, vue@npm:^2.6.14":
   version: 2.6.14
   resolution: "vue@npm:2.6.14"
   checksum: 23524a1bdca094d62cb3491a46317eed75184b5d61d28fa846ea5d2b241c1cc7084fc67ee259d47a50a6d0bbc33ecaceb7bb52bff81312fe7da07263f3419942
+  languageName: node
+  linkType: hard
+
+"vuex-module-decorators@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "vuex-module-decorators@npm:2.0.0"
+  peerDependencies:
+    vue: ">=3"
+    vuex: ">=4"
+  checksum: 09298e916feafed0a5df3048d2d710dd3133cd9c5f4d6a326b69efdff387e3efa75f8c5971ee25c8c1d40e37cbad19ea56cb830c2bc6e0469eb70f803052bf8c
+  languageName: node
+  linkType: hard
+
+"vuex-persistedstate@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "vuex-persistedstate@npm:4.1.0"
+  dependencies:
+    deepmerge: ^4.2.2
+    shvl: ^2.0.3
+  peerDependencies:
+    vuex: ^3.0 || ^4.0.0-rc
+  checksum: f9dd42ea0e0118e0c579f9d9012ceeac17fdea66904780416cb2abed6e1a40c1fb1cec23d455de0d2480747e6226a58dbd36c23a35751904ffbc4f0499fed2c0
   languageName: node
   linkType: hard
 

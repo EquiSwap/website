@@ -1,6 +1,9 @@
+const { POSITION } = require('vue-toastification');
+
 export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: 'static',
+    ssr: false,
 
     loading: {
         color: '#9bda5d',
@@ -9,7 +12,7 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'group02-app',
+        title: 'EquiSwap',
         meta: [
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -30,7 +33,9 @@ export default {
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+        '~/plugins/axios-accessor.ts'
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: {
@@ -46,7 +51,8 @@ export default {
     buildModules: [
         // https://go.nuxtjs.dev/typescript
         '@nuxt/typescript-build',
-        'nuxt-windicss'
+        'nuxt-windicss',
+        '@nuxtjs/dotenv'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -54,18 +60,20 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
         // https://go.nuxtjs.dev/pwa
-        '@nuxtjs/pwa'
+        '@nuxtjs/pwa',
+        // https://github.com/Maronato/vue-toastification
+        "vue-toastification/nuxt"
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: 'http://localhost:8357',
+        baseURL: 'http://localhost:8357'
+    },
 
-        publicRuntimeConfig: {
-            axios: {
-                browserBaseURL: process.env.API_BASE_URL
-            }
+    publicRuntimeConfig: {
+        axios: {
+            browserBaseURL: process.env.API_BASE_URL
         }
     },
 
@@ -74,6 +82,13 @@ export default {
         manifest: {
             lang: 'en'
         }
+    },
+
+    // https://github.com/Maronato/vue-toastification/tree/main#installation
+    toast: {
+        timeout: 3000,
+        position: POSITION.TOP_RIGHT,
+        toastClassName: 'equiSwap-toast'
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

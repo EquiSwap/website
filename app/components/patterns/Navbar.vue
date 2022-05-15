@@ -2,8 +2,8 @@
     <div>
         <div class="header-spacer" />
         <div class="header">
-            <nuxt-link to="/">
-                <img class="logo" src="~/assets/images/equiswap_logo.png" alt="EquiSwap Logo" role="presentation">
+            <nuxt-link class="logo-wrapper" to="/">
+                <img draggable="false" class="logo" src="~/assets/images/equiswap_logo.png" alt="EquiSwap Logo" role="presentation">
             </nuxt-link>
             <nuxt-link to="/categories">Categories</nuxt-link>
             <nuxt-link to="/leaderboard">Leaderboard</nuxt-link>
@@ -11,19 +11,45 @@
             <div class="searchbar">
                 <SearchField />
             </div>
-            <nuxt-link to="/login">Login</nuxt-link>
-            <nuxt-link to="/register">Register</nuxt-link>
-            <div class="button">
-                <Button>My Cart</Button>
-            </div>
+
+            <template v-if="authenticated">
+                <a>Messages</a>
+                <a href="#" @click.prevent="logout">Log Out</a>
+                <nuxt-link style="font-size:0" to="/account"><ProfilePicture currentUser /></nuxt-link>
+            </template>
+            <template v-else>
+                <nuxt-link to="/register">Register</nuxt-link>
+                <div class="button">
+                    <nuxt-link to="/login"><Button>Login</Button></nuxt-link>
+                </div>
+            </template>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-export default ({
-    name: 'Navbar'
-})
+<script>
+import { user } from "~/utils/store-accessor";
+
+export default {
+    name: 'Navbar',
+
+    computed: {
+        authenticated () {
+            return user.isAuthenticated;
+        },
+
+        user () {
+            return user.cache;
+        }
+    },
+
+    methods: {
+        async logout () {
+            await this.$router.push('/');
+            await user.logout();
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -55,12 +81,22 @@ export default ({
     }
 }
 
-img.logo {
-    background-size: 300px;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 60px;
-    transform: translate(0, -2px);
+.logo-wrapper {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    cursor: pointer;
+
+    img.logo {
+        background-size: 300px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        height: 60px;
+        transform: translate(0, -2px);
+
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        cursor: pointer;
+    }
 }
 
 .spacer {

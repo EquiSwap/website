@@ -1,31 +1,38 @@
 {
-  "name": "group02-app",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "test": "yarn playwright test",
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/pwa": "^3.3.5",
-    "core-js": "^3.19.3",
-    "nuxt": "^2.15.8",
-    "vue": "^2.6.14",
-    "vue-server-renderer": "^2.6.14",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^4.46.0"
-  },
-  "devDependencies": {
-    "@nuxt/types": "^2.15.8",
-    "@nuxt/typescript-build": "^2.1.0",
-    "@playwright/test": "^1.20.2",
-    "nuxt-windicss": "^2",
-    "playwright": "^1.20.2",
-    "sass": "^1.50.0",
-    "sass-loader": "10"
-  }
+    "name": "group02-app",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "test": "yarn playwright test",
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start",
+        "generate": "nuxt generate",
+        "deploy:dev": "yarn generate && rsync -r ./dist/ /var/www/equiswap"
+    },
+    "dependencies": {
+        "@nuxtjs/axios": "^5.13.6",
+        "@nuxtjs/dotenv": "^1.4.1",
+        "@nuxtjs/pwa": "^3.3.5",
+        "@types/js-cookie": "^3.0.2",
+        "core-js": "^3.19.3",
+        "js-cookie": "^3.0.1",
+        "nuxt": "^2.15.8",
+        "vue": "^2.6.14",
+        "vue-server-renderer": "^2.6.14",
+        "vue-template-compiler": "^2.6.14",
+        "vue-toastification": "^1.7.14",
+        "vuex-module-decorators": "^2.0.0",
+        "vuex-persistedstate": "^4.1.0",
+        "webpack": "^4.46.0"
+    },
+    "devDependencies": {
+        "@nuxt/types": "^2.15.8",
+        "@nuxt/typescript-build": "^2.1.0",
+        "@playwright/test": "^1.20.2",
+        "nuxt-windicss": "^2",
+        "playwright": "^1.20.2",
+        "sass": "^1.50.0",
+        "sass-loader": "10"
+    }
 }

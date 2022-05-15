@@ -4,17 +4,44 @@ import { User } from '../../models/User';
 import * as argon2 from 'argon2';
 
 import { EMAIL_REGEX, equiSwapHashingOptions } from '../../utils';
-import { wrap } from '@mikro-orm/core';
+import {expr, wrap} from '@mikro-orm/core';
 import { Session } from '../../models/Session';
+import {OnlyAuthorized} from '../../middlewares/Authorization';
 
 @Controller('v1', 'session')
 export default class SessionController {
 
+    /**
+     * Get information about the current session.
+     * @param ctx
+     */
+    @Middleware(OnlyAuthorized)
+    @Route(Method.GET, '/')
+    public async index(ctx: Context): Promise<void> {
+        ctx.success({ user: ctx.user });
+    }
+
+    /**
+     * End the current session (log out).
+     * @param ctx
+     */
+    @Middleware(OnlyAuthorized)
+    @Route(Method.DELETE, '/logout')
+    public async logout(ctx: Context): Promise<void> {
+        const sessionRepo = ctx.getEntityManager()!.getRepository(Session);
+        await sessionRepo.removeAndFlush(ctx.session);
+        ctx.success();
+    }
+
+    /**
+     * Start a new session by authenticating an existing user (log in).
+     * @param ctx
+     */
     @Middleware(Body())
     @Route(Method.POST, '/login')
     public async login(ctx: Context): Promise<void> {
         // Get and validate the username and the password from the request body.
-        const [validationStatus, { username, password }] = createValidator({
+        const [validationStatus, requestPayload] = createValidator({
             username: {
                 type: 'string',
                 required: true,
@@ -33,11 +60,13 @@ export default class SessionController {
             return ctx.error(400, 'ERR_INVALID_DATA', validationStatus.message);
         }
 
+        const { username, password } = requestPayload;
+
         // Load the user repository.
         const userRepo = ctx.getEntityManager()!.getRepository(User);
 
         // Fetch the user from the user repository.
-        const user = await userRepo.findOne({ username });
+        const user = await userRepo.findOne({ [expr('lower(username)')]: username.toLowerCase() });
         if (user == null) {
             return ctx.error(
                 401,
@@ -82,6 +111,10 @@ export default class SessionController {
         });
     }
 
+    /**
+     * Start a new session by creating a new user (register).
+     * @param ctx
+     */
     @Middleware(Body())
     @Route(Method.POST, '/register')
     public async register(ctx: Context) : Promise<void> {
@@ -102,7 +135,7 @@ export default class SessionController {
             },
             dateOfBirth: {
                 type: 'string',
-                required: true,
+                required: false,
                 // YYYY-MM-DD
                 matches: /^\d{4}-\d{2}-\d{2}$/
             },
@@ -171,7 +204,7 @@ export default class SessionController {
         const session = new Session({ user, ipAddress });
 
         // Delete any existing sessions for the user, and persist the new session to the database.
-        await sessionRepo.nativeDelete({ user });
+        await sessionRepo.removeAndFlush(user);
         await sessionRepo.persist(session).flush();
 
         return session;

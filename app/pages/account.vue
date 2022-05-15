@@ -1,90 +1,172 @@
 <template>
-    <div>
+    <div v-if="ready">
         <h1>Account Settings</h1>
-        <div class="card">
-        <AccountCard>
-            <h2>User Details</h2>
-            <h3>General Information</h3>
+        <div class="cards">
+            <ContentCard>
+                <h2>User Details</h2>
 
-            <div class="float label">First Name</div>
-            <div class="float"><TextField /></div>
-            <div class="clearfix"></div>
+                <br>
 
-            <div class="float label">Last Name</div>
-            <div class="float"><TextField /></div>
-            <div class="clearfix"></div>
+                <h3>General Information</h3>
+                <TextField icon="user" v-model="form.displayName" label="Display Name"/>
+                <TextField icon="email" v-model="form.email" label="Email Address"/>
 
-            <h3>Location</h3>
+                <br>
 
-            <div class="float label">Postcode</div>
-            <div class="float"><TextField /></div>
-            <div class="clearfix"></div>
+                <h3>Location</h3>
+                <TextField v-model="form.street" label="Street"/>
+                <TextField v-model="form.county" label="County"/>
+                <TextField v-model="form.postcode" label="ZIP Code / Postcode"/>
+                <TextField disabled v-model="form.country" label="Country"/>
 
-            <div class="float label">Street</div>
-            <div class="float"><TextField /></div>
-            <div class="clearfix"></div>
+                <Button class="right" @click.native.prevent="save">Save Changes</Button>
+            </ContentCard>
 
-            <div class="float label">County</div>
-            <div class="float"><TextField /></div>
-            <div class="clearfix"></div>
-
-            <div class="float label">Country</div>
-            <div class="float"><TextField /></div>
-            <div class="clearfix"></div>
-            <Button />
-        </AccountCard>
-        </div>
-
-        <div class="card">
-        <AccountCard>
-            <h2>Avatar</h2>
-            <div class="center">
-                <ProfilePic />
-                <Button />
-            </div>
-        </AccountCard>
+            <ContentCard>
+                <h2>Profile Picture</h2>
+                <div class="center">
+                    <ProfilePicture large currentUser />
+                    <Button @click.native.prevent="uploadProfilePicture">Change Profile Picture</Button>
+                </div>
+            </ContentCard>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
+import { user } from "~/utils/store-accessor";
+
+export default {
+
+    beforeCreate() {
+        if (!user.isAuthenticated) {
+            this.$router.replace('/');
+        }
+    },
+
+    mounted() {
+        if (user.isAuthenticated) this.ready = true;
+    },
+
+    data: () => ({
+        ready: false,
+
+        form: {
+            displayName: user.cache.displayName,
+            email: user.cache.email,
+
+            street: user.cache.street,
+            county: user.cache.county,
+            postcode: user.cache.postcode,
+            country: user.cache.country,
+        }
+    }),
+
+    methods: {
+
+        async save() {
+            try {
+                const updateResponse = (await this.$axios.$post(
+                    '/v1/user/update', this.form, user.requestConfig
+                )).payload;
+                user.replaceUserCache(updateResponse.user);
+
+                this.$toast.success(updateResponse.message);
+            } catch(ex) {
+                const errorData = ex.response?.data;
+                this.$toast.error(errorData.message ?? 'Failed to save changes. Please try again later.');
+            }
+        },
+
+        async uploadProfilePicture() {
+            try {
+                // Attempt to get the profile image from the user.
+                const profilePicture = await new Promise((resolve, reject) => {
+                    const fileInputElement = document.createElement('input');
+                    fileInputElement.type = 'file';
+                    fileInputElement.accept = 'image/*';
+
+                    fileInputElement.addEventListener('change', () => {
+                        if (fileInputElement.files.length) {
+                            const reader = new FileReader();
+                            reader.onloadend = () => resolve(reader.result);
+                            reader.onerror = (err) => reject(err);
+                            reader.readAsDataURL(fileInputElement.files[0]);
+                        } else resolve(undefined);
+                    });
+                    fileInputElement.click();
+                });
+
+                // If there was no profile image specified, do nothing.
+                if (!profilePicture) return;
+
+                const progressToast = this.$toast.success("Uploading image...");
+
+                // Otherwise, upload the profile image.
+                const updateResponse = (await this.$axios.$post(
+                    '/v1/user/setProfilePicture', { profilePicture }, user.requestConfig
+                )).payload;
+                user.replaceUserCache({
+                    ...user.cache,
+                    profilePicture: updateResponse.profilePicture
+                });
+
+                this.$toast.dismiss(progressToast);
+                this.$toast.success(updateResponse.message);
+            } catch(ex) {
+                const errorData = ex.response?.data;
+                this.$toast.error(errorData.message ?? 'Failed to upload new profile picture. Please try again later.');
+            }
+        }
 
     }
+
+}
 </script>
 
 <style lang="scss" scoped>
 h1 {
-    padding-top: 30px;
-    padding-left: 120px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    margin-left: 120px;
     font-size: 30px;
     font-weight: bold;
 }
 
 h2 {
-    padding: 30px;
     font-size: 25px;
     font-weight: bold;
 }
 
 h3 {
     font-size: 15px;
-    padding-left: 30px;
     font-weight: bold;
 }
 
-.card {
-    width: 50%;
-    padding: 30px;
-    padding-left: 120px;
-    padding-right: 120px;
-    float: left;
+.cards {
     display: flex;
-    justify-content: space-between;
-}
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 30px 60px;
+    row-gap: 50px;
 
-.float {
-    float: left;
+    @media(min-width: 1200px) {
+        justify-content: space-evenly;
+        align-items: stretch;
+        padding: 30px 120px;
+        flex-direction: row;
+        row-gap: 0;
+    }
+
+    .content-card {
+        width: 500px;
+    }
+
+    .right {
+        align-self: flex-end;
+        margin: 20px 0 0;
+    }
 }
 
 .label {
@@ -92,12 +174,4 @@ h3 {
     font-size: 15px;
 }
 
-.clearfix{
-    clear:both
-}
-
-
-// .center {
-//     margin-left: 50%;
-// }
 </style>

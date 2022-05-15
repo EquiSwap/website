@@ -1,9 +1,8 @@
 <template>
-    <div>
-        <button class="button" :class="{ block }" role="button">
-            <slot/>
-        </button>
-    </div>
+    <button class="button" :class="{ block, loading }" role="button">
+        <Loader slim white v-if="loading" />
+        <slot v-else />
+    </button>
 </template>
 
 <script>
@@ -11,6 +10,10 @@ export default {
     name: 'Button',
     props: {
         block: {
+            type: Boolean,
+            default: false
+        },
+        loading: {
             type: Boolean,
             default: false
         }

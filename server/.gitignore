@@ -12,3 +12,7 @@ node_modules/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# Remove static files.
+static/v0/images/users/*
+!static/v0/images/users/.gitkeep

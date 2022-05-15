@@ -11,9 +11,10 @@
     },
     "packageManager": "yarn@3.1.1",
     "dependencies": {
-        "@apollosoftwarexyz/cinnamon": "^0.1.0-beta.1",
+        "@apollosoftwarexyz/cinnamon": "^0.1.0-beta.2",
         "@apollosoftwarexyz/cinnamon-database": "^0.1.0-beta.1",
         "@apollosoftwarexyz/cinnamon-plugin-asl-protocol": "^2.0.0",
+        "@apollosoftwarexyz/cinnamon-plugin-cors": "^1.0.1",
         "@apollosoftwarexyz/cinnamon-validator": "^0.1.0-beta.1",
         "@mikro-orm/cli": "^5.1.3",
         "@mikro-orm/core": "^5.1.3",

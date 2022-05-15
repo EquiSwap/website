@@ -1,6 +1,6 @@
 <template>
     <div class="box">
-        <ProfilePic />
+        <ProfilePicture />
         <p>User 1</p>
         <p>8</p>
         <p>600</p>
@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 

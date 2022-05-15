@@ -13,3 +13,19 @@ body {
 input {
   font-family: 'DM Sans', sans-serif !important;
 }
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 175ms ease-out, transform 175ms ease-out;
+}
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+    transform: translate(0, -1%);
+}
+
+.equiSwap-toast {
+    &.Vue-Toastification__toast--success {
+        background: var(--color-dark);
+    }
+}

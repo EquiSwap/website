@@ -8,6 +8,24 @@
     </div>
 </template>
 
-<style>
+<script>
+import { user } from "~/utils/store-accessor";
 
-</style>
+export default {
+
+    data: () => ({
+        isAuthenticated: false
+    }),
+
+    async beforeCreate() {
+        let wasLoggedIn = user.isAuthenticated;
+
+        await user.startSession();
+        this.isAuthenticated = user.isAuthenticated;
+        if (wasLoggedIn && !this.isAuthenticated) {
+            this.$toast.error('You have been logged out.');
+        }
+    },
+
+}
+</script>
