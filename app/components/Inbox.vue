@@ -1,13 +1,13 @@
 <template>
    <div class="container">
        <SearchField class="search"/>
-       <UserDisplay class="Temp"/>
+<!--       <UserDisplay class="Temp"/>-->
    </div>
 </template>
 
 <script>
     export default {
-        
+
     }
 </script>
 

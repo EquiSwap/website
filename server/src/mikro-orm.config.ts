@@ -8,6 +8,8 @@ export default (async () => {
     });
 
     const config = {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         ...(framework.getModule<Database>(Database.prototype).ormConfig),
         migrations: {
             disableForeignKeys: false,

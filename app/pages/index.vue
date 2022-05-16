@@ -1,18 +1,24 @@
 <template>
-<div>
-  <div>
-    <HeroSection />
-    <TrendingCard />
-  </div>
-</div>
+    <div>
+        <div>
+            <HeroSection />
+            <TrendingCard v-if="trendingCategories" :categories="trendingCategories" />
+        </div>
+    </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
+export default {
+    name: 'IndexPage',
 
-export default Vue.extend({
-  name: 'IndexPage'
-});
+    data: () => ({
+        trendingCategories: undefined
+    }),
+
+    async beforeCreate() {
+        this.trendingCategories = (await this.$axios.$get('/v1/product/categories/trending')).payload;
+    }
+};
 </script>
 
 

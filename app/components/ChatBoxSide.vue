@@ -1,19 +1,19 @@
 <template>
     <div class="container">
         <div class="firstContainer">
-            <UserDisplay />
+<!--            <UserDisplay />-->
             <p> Location    London </p>
         </div>
         <div class="secondContainer">
-            <ProductCard class = "product"/>
-            <ProductCard class = "product"/>
+<!--            <ProductCard class = "product"/>-->
+<!--            <ProductCard class = "product"/>-->
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        
+
     }
 </script>
 

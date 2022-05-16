@@ -12,9 +12,9 @@
                         <p class="error">{{ error }}</p>
                         <br>
                     </template>
-                    <TextField v-model="form.username" label="Username" icon="user" />
-                    <TextField v-model="form.email" label="Email Address" icon="email" />
-                    <TextField v-model="form.password" label="Password" type="password" icon="lock" />
+                    <TextField required v-model="form.username" label="Username" icon="user" />
+                    <TextField required v-model="form.email" label="Email Address" icon="email" />
+                    <TextField required v-model="form.password" label="Password" type="password" icon="lock" />
                     <Button block class="center" @click.native.prevent="submit">Sign Up</Button>
                     <br>
                     <div class="promo">

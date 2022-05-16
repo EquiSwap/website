@@ -14,8 +14,8 @@
                         <p class="error">{{ error }}</p>
                         <br>
                     </template>
-                    <TextField v-model="form.username" label="Username" icon="user"/>
-                    <TextField v-model="form.password" label="Password" type="password" icon="lock"/>
+                    <TextField required v-model="form.username" label="Username" icon="user"/>
+                    <TextField required v-model="form.password" label="Password" type="password" icon="lock"/>
                     <Button :loading="loading" block class="center" @click.native.prevent="submit">Log In</Button>
                     <br>
                     <div class="promo">

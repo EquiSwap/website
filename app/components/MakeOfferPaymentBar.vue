@@ -1,33 +1,39 @@
 <template>
-    <div class="contain">
-        <h1>Add additional payment</h1>
-        <TextField />
-        <Button />
-        <TextField />
-        <h1>Request additional payment</h1>
+    <div class="payment-bar">
+        <h1>Add Payment</h1>
+        <TextField icon="money" type="number" label="Enter amount..."/>
+        <Button>Make Trade</Button>
+        <TextField icon="money" type="number" label="Enter amount..."/>
+        <h1>Request Payment</h1>
     </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {}
 </script>
 
 <style lang="scss" scoped>
-.contain {
+.payment-bar {
     background-color: white;
-    width: 90%;
-    margin-left: 5%;
     display: flex;
-    place-items: center;
     justify-content: space-between;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-top: 2px solid rgba(0, 0, 0, 0.121);
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 h1 {
+    display: block;
     font-weight: bold;
+    flex-grow: 1;
+
+    padding: 0 20px;
+    text-align: center;
 }
+
 // .center {
 //     display: grid;
 //     place-items: center;

@@ -5,7 +5,7 @@
             <nuxt-link class="logo-wrapper" to="/">
                 <img draggable="false" class="logo" src="~/assets/images/equiswap_logo.png" alt="EquiSwap Logo" role="presentation">
             </nuxt-link>
-            <nuxt-link to="/categories">Categories</nuxt-link>
+            <nuxt-link to="/browse">Categories</nuxt-link>
             <nuxt-link to="/leaderboard">Leaderboard</nuxt-link>
             <div class="spacer"/>
             <div class="searchbar">
@@ -14,8 +14,11 @@
 
             <template v-if="authenticated">
                 <a>Messages</a>
-                <a href="#" @click.prevent="logout">Log Out</a>
+                <div class="button">
+                    <nuxt-link to="/account/post"><Button>Create Listing</Button></nuxt-link>
+                </div>
                 <nuxt-link style="font-size:0" to="/account"><ProfilePicture currentUser /></nuxt-link>
+                <a class="mr-4" href="#" @click.prevent="logout">Log Out</a>
             </template>
             <template v-else>
                 <nuxt-link to="/register">Register</nuxt-link>

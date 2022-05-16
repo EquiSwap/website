@@ -6,6 +6,7 @@
         "start": "ts-node .",
         "db": "yarn mikro-orm",
         "db:migrate": "yarn mikro-orm migration:up",
+        "db:seed": "ts-node bin/seed.ts",
         "lint": "eslint .",
         "lint:fix": "eslint --fix ."
     },

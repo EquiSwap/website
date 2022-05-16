@@ -1,12 +1,14 @@
 <template>
     <div>
-        <a class="button" href="javascript:history.back()"><button role="button">←</button></a>
+        <a class="button" href="javascript:history.back()">
+            <button role="button"><Icon of="back" /></button>
+        </a>
     </div>
 </template>
 
 <script>
     export default {
-        
+
     }
 </script>
 

@@ -1,19 +1,13 @@
 <template>
-    <div class="profilePicture" :class="{ large }">
-        <img draggable="false" v-if="src" :src="src" alt="Profile Image" />
-        <Icon draggable="false" v-else of="user" />
+    <div class="productPicture" :class="{ large }">
+        <img draggable="false" v-if="src" :src="src" alt="Product Image" />
+        <Icon draggable="false" v-else of="missing" />
     </div>
 </template>
 
 <script>
-import { user } from "~/utils/store-accessor";
-
 export default {
     props: {
-        currentUser: {
-            type: Boolean,
-            default: false
-        },
         target: {
             type: String,
             required: false
@@ -25,25 +19,25 @@ export default {
     },
     computed: {
         src () {
-            if (this.currentUser && user.cache.profilePicture) {
-                return `${this.$axios.defaults.baseURL}${user.cache.profilePicture}`;
-            } else if (this.target) {
+            if (this.target && this.target.startsWith('/')) {
                 return `${this.$axios.defaults.baseURL}${this.target}`;
-            }
-            else return undefined;
+            } else if (this.target) {
+                return this.target;
+            } else return undefined;
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.profilePicture {
+.productPicture {
     position: relative;
     height: 64px;
     width: 64px;
     background-color: rgb(200, 200, 200);
-    border-radius: 100%;
+    border-radius: 20px;
     clip-path: content-box;
+    object-fit: contain;
 
     display: inline-flex;
     justify-content: center;
@@ -57,7 +51,7 @@ export default {
     img {
         height: 100%;
         width: 100%;
-        border-radius: 100%;
+        border-radius: 20px;
     }
 
     &.large {

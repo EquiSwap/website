@@ -1,55 +1,53 @@
 <template>
-    <div class="back-button">
-        <div class="border">
+    <div class="full-page-card">
+        <div class="header">
             <BackButton />
         </div>
-        <div class="contain">
-            <div class="header">
-            <slot />
+        <div class="content">
+            <template v-if="loading">
+                <div class="my-32">
+                    <Loader large />
+                </div>
+            </template>
+            <template v-else>
+                <div>
+                    <slot />
+                </div>
+            </template>
         </div>
-    </div>
     </div>
 </template>
 
 <script>
     export default {
-        
+        props: {
+            loading: {
+                type: Boolean,
+                default: false
+            }
+        }
     }
 </script>
 
 <style lang="scss" scoped>
-
-.contain {
-    display: flex;
-    width: 100%;
-    // left: 50%;
-
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.121);
-    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.back-button {
-    // display: flex;
-    margin: auto;
+.full-page-card {
     width: 90%;
     left: 50%;
-    margin-top: 50px;
+    margin: 50px auto auto;
+
+    border-radius: 18px;
 
     background: #ffffff;
-    // border: 1px solid rgba(0, 0, 0, 0.121);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.header {
-    width: 100%;
-    // object-fit: cover;
-}
-
-.border {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(0, 0, 0, 0.121);
 
-    // Inset shadow
-    // box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25) inset;
+    .content {
+        width: 100%;
+        background: #ffffff;
+        border-top: 1px solid rgba(0, 0, 0, 0.121);
+
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+    }
 }
 </style>

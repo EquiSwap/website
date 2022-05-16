@@ -1,52 +1,46 @@
 <template>
     <div class="mainContainer">
-        <div class="imageBox">  </div>
-        <h1> User </h1>
-        <p>hello</p>
+        <ProfilePicture :target="user.profilePicture" />
+        <div class="sideContainer">
+            <h1><b>{{ user.displayName }}</b></h1>
+            <p>@{{ user.username }}</p>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        
+export default {
+    props: {
+        user: {
+            type: Object,
+            required: true
+        }
     }
+}
 </script>
 
 <style lang="scss" scoped>
 .mainContainer{
+    display: flex;
     position: relative;
     width: 100%;
-    height: 85px;
-    background-color: transparent;
-    // display:inline-block;
-    margin: 1px 0px 1px 0px;
-    text-align: left;
+    gap: 10px;
 
-}
-.mainContainer .imageBox {
-    height:70px;
-    width: 70px; 
-    background-color: rgb(19, 7, 7);
-    margin: 8px 0px 0px 5px;
-    display: inline-block;
-    border-radius: 50%;
+    .sideContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 h1 {
-    position: absolute;
-    top: 10px;
-    display: inline-block;
-    font-size: 20px;  
-    margin-left: 10px;
+    font-size: 20px;
+    margin: 0;
+    line-height: 1;
 }
+
 p {
-    display: inline-block;
-    margin-left:11px;
-    position: absolute;
-    margin-top: 37px;
-
+    margin: 0;
+    line-height: 1;
 }
-
-
-
 </style>

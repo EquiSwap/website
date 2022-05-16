@@ -1,5 +1,5 @@
 <template>
-    <button class="button" :class="{ block, loading }" role="button">
+    <button class="button" :class="{ block, loading, danger }" role="button">
         <Loader slim white v-if="loading" />
         <slot v-else />
     </button>
@@ -14,6 +14,10 @@ export default {
             default: false
         },
         loading: {
+            type: Boolean,
+            default: false
+        },
+        danger: {
             type: Boolean,
             default: false
         }
@@ -45,6 +49,10 @@ export default {
         font-weight: 500;
     }
 
+    &.danger {
+        background-color: #FF2D3F;
+    }
+
     &:hover,
     &:focus {
         outline: 0;
@@ -54,6 +62,10 @@ export default {
 
     &:hover {
         background-color: var(--color-dark);
+    }
+
+    &.danger:hover {
+        background-color: darken(#FF2D3F, 10%);
     }
 }
 </style>

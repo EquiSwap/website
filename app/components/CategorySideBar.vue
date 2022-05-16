@@ -2,30 +2,34 @@
     <div class="container-box">
         <h2>Categories</h2>
         <br>
-        <p>Shirts</p>
-        <p>Tops</p>
-        <p>Jumpers</p>
-        <p>Jackets</p>
-        <p>Coats</p>
-        <p>Trousers</p>
-        <p>Shorts</p>
-        <p>Jeans</p>
-        <p>Skirts</p>
-        <p>Dresses</p>
-        <p>Hats</p>
-        <p>Shoes</p>
-        <p>Handbags</p>
-        <p>Accessories</p>
-        <p>Nightwear</p>
-        <p>Maternity Wear</p>
-        <p>Watches</p>
+        <p :key="category.id" v-for="category in categories">
+            <nuxt-link :to="`/browse/${category.slug}`">
+                <b v-if="activeCategory === category.slug">{{ getCategoryName(category) }}</b>
+                <template v-else>{{ getCategoryName(category) }}</template>
+            </nuxt-link>
+        </p>
     </div>
 </template>
 
 <script>
-    export default {
-        
+export default {
+    props: {
+        categories: {
+            type: Array,
+            required: true
+        },
+        activeCategory: {
+            type: String,
+            required: true
+        }
+    },
+
+    methods: {
+        getCategoryName(category) {
+            return `${category.name} (${category.products.length})`;
+        }
     }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -39,10 +43,7 @@ p {
 }
 
 .container-box {
-    background: white;
-    border: 5px;
-    padding: 30px 100px 100px 50px;
+    padding: 30px 50px;
     text-align: left;
-    box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.1);;
 }
 </style>

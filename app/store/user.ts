@@ -83,7 +83,6 @@ export default class UserStore extends VuexModule {
             sessionToken = registerResponse.authToken;
             cache = new User(registerResponse.user);
         } catch(ex: any) {
-            console.error(ex);
             const errorData = ex.response?.data;
             throw new Error(errorData?.message ?? "There was a problem registering your account.");
         }
@@ -92,15 +91,17 @@ export default class UserStore extends VuexModule {
     }
 
     @MutationAction
-    async logout() {
-        try {
-            await $axios.$delete('/v1/session/logout', {
-                headers: {
-                    Authorization: `Bearer ${this.sessionToken}`
-                }
-            });
-        } catch(ex: any) {
-            alert("There was a problem logging you out.");
+    async logout(options?: { force: boolean }) {
+        if (!options?.force) {
+            try {
+                await $axios.$delete('/v1/session/logout', {
+                    headers: {
+                        Authorization: `Bearer ${this.sessionToken}`
+                    }
+                });
+            } catch (ex: any) {
+                alert("There was a problem logging you out.");
+            }
         }
 
         return {sessionToken: undefined, cache: GuestUser} as { sessionToken: string | undefined, cache: IUser };

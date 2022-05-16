@@ -14,5 +14,5 @@ node_modules/
 .pnp.*
 
 # Remove static files.
-static/v0/images/users/*
-!static/v0/images/users/.gitkeep
+static/v0/images/*/*
+!static/v0/images/*/.gitkeep

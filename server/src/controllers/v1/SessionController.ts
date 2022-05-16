@@ -204,7 +204,7 @@ export default class SessionController {
         const session = new Session({ user, ipAddress });
 
         // Delete any existing sessions for the user, and persist the new session to the database.
-        await sessionRepo.removeAndFlush(user);
+        await sessionRepo.nativeDelete({ user });
         await sessionRepo.persist(session).flush();
 
         return session;
