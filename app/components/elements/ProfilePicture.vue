@@ -1,5 +1,5 @@
 <template>
-    <div class="profilePicture" :class="{ large }">
+    <div class="profilePicture" :class="{ large, small }">
         <img draggable="false" v-if="src" :src="src" alt="Profile Image" />
         <Icon draggable="false" v-else of="user" />
     </div>
@@ -19,6 +19,10 @@ export default {
             required: false
         },
         large: {
+            type: Boolean,
+            default: false
+        },
+        small: {
             type: Boolean,
             default: false
         }
@@ -63,6 +67,11 @@ export default {
     &.large {
         height: 196px;
         width: 196px;
+    }
+
+    &.small {
+        height: 32px;
+        width: 32px;
     }
 }
 </style>

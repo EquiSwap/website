@@ -5,6 +5,10 @@ export default {
     target: 'static',
     ssr: false,
 
+    generate: {
+        fallback: "custom_sap_fallback.html"
+    },
+
     loading: {
         color: '#9bda5d',
         height: '5px'

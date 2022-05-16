@@ -40,5 +40,4 @@ export class Product extends TrackedBaseEntity {
         this.owner = props.owner;
     }
 
-
 }

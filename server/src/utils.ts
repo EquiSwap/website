@@ -33,3 +33,38 @@ export async function writeFile(directoryName: string, name: string, extension: 
     if (!/^[a-zA-Z\d-]+$/.test(name)) throw new Error('Illegal file path');
     await promisify(fs.writeFile)(path.join(directoryName, `${name}.${extension}`), data);
 }
+
+export function unique<T>(array: Array<T>) : Array<T> {
+    return array.filter((value, index, self) => {
+        return self.indexOf(value) === index;
+    });
+}
+
+export interface Location {
+    longitude: number;
+    latitude: number;
+}
+
+function toRadians(degree: number) {
+    return (Math.PI / 180) * degree;
+}
+
+export function distance(a: Location, b: Location) : number {
+    const latA = toRadians(a.latitude);
+    const longA = toRadians(a.longitude);
+
+    const latB = toRadians(b.latitude);
+    const longB = toRadians(b.longitude);
+
+    // Haversine Formula
+    const dLong = Math.abs(longB - longA);
+    const dLat = Math.abs(latB - latA);
+
+    let ans = Math.pow(Math.sin(dLat / 2), 2) + Math.cos(latA) * Math.cos(latB) * Math.pow(Math.sin(dLong / 2), 2);
+    ans = 2 * Math.asin(Math.sqrt(ans));
+    // Convert to miles.
+    // For km use 6371.
+    const R = 3956;
+
+    return ans * R;
+}

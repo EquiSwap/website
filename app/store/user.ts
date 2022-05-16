@@ -12,6 +12,10 @@ export default class UserStore extends VuexModule {
     cache: IUser = GuestUser;
 
     get requestConfig() {
+        if (!this.isAuthenticated) {
+            return {};
+        }
+
         return {
             headers: {
                 Authorization: `Bearer ${this.sessionToken}`

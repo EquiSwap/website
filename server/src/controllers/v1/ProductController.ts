@@ -1,19 +1,38 @@
 import {Body, Context, Controller, Method, Middleware, Route} from '@apollosoftwarexyz/cinnamon';
 import {ProductCategory} from '../../models/ProductCategory';
-import {OnlyAuthorized} from '../../middlewares/Authorization';
+import {MaybeAuthorized, OnlyAuthorized} from '../../middlewares/Authorization';
 import {createValidator} from '@apollosoftwarexyz/cinnamon-validator';
 import {Product} from '../../models/Product';
-import {writeFile} from '../../utils';
+import {distance, unique, writeFile} from '../../utils';
+import axios from 'axios';
+import {User} from '../../models/User';
 
 @Controller('v1', 'product')
 export default class ProductController {
 
+    @Middleware(MaybeAuthorized)
     @Route(Method.GET, '/categories')
     public async categories(ctx: Context) : Promise<void> {
         const categoryRepo = ctx.getEntityManager()!.getRepository(ProductCategory);
         const categories = await categoryRepo.findAll({
             populate: ['products', 'products.owner']
         });
+
+        const distances = await this.augmentProductDistances(
+            ctx.user,
+            categories.map(category => category.products.getItems().map(product => ({
+                id: product.id,
+                postcode: product.owner.postcode,
+            }))).flat()
+        );
+
+        ctx.success({ categories, distances });
+    }
+
+    @Route(Method.GET, '/categories/list')
+    public async listCategories(ctx: Context) : Promise<void> {
+        const categoryRepo = ctx.getEntityManager()!.getRepository(ProductCategory);
+        const categories = await categoryRepo.findAll();
 
         ctx.success(categories);
     }
@@ -116,8 +135,14 @@ export default class ProductController {
      * List a product.
      * @param ctx
      */
+    @Middleware(MaybeAuthorized)
     @Route(Method.GET, '/:id')
     public async product(ctx: Context) : Promise<void> {
+        // If the ID is not a UUID, return a 404 immediately.
+        if (ctx.params.id.length != 36) {
+            return ctx.error(404, 'ERR_NOT_FOUND', 'The requested product could not be found.');
+        }
+
         const productRepo = ctx.getEntityManager()!.getRepository(Product);
         const product = await productRepo.findOne({ id: ctx.params.id }, {
             populate: ['owner']
@@ -127,7 +152,54 @@ export default class ProductController {
             return ctx.error(404, 'ERR_NOT_FOUND', 'The requested product could not be found.');
         }
 
-        ctx.success(product);
+        const distance = Math.round((await this.augmentProductDistances(ctx.user, [{
+            id: product.id,
+            postcode: product.owner.postcode
+        }]))[product.id]);
+
+        ctx.success({ product, distance });
     }
 
+    private async augmentProductDistances(relativeTo: User, products: {
+        id: string;
+        postcode: string;
+    }[]) : Promise<PostcodeMap> {
+        if (!relativeTo) return {};
+
+        const relativeToPostcode = relativeTo.postcode;
+        if (!relativeToPostcode) return {};
+
+        const locations = {};
+        const locationData = (await axios.post('https://api.postcodes.io/postcodes', {
+            postcodes: unique([
+                relativeToPostcode,
+                ...products.map(product => product.postcode).filter(entry => entry)
+            ])
+        })).data.result;
+
+        locationData.forEach((location) => {
+            locations[location.query] = ({
+                longitude: location.result.longitude,
+                latitude: location.result.latitude
+            });
+        });
+
+        if (!locations[relativeToPostcode]) return {};
+
+        const distances = {};
+        for (const query in locations) {
+            distances[query] = distance(locations[relativeToPostcode], locations[query]);
+        }
+
+        const postcodeMap = {};
+        products.forEach(product => {
+            postcodeMap[product.id] = Math.round(distances[product.postcode]);
+        });
+        return postcodeMap;
+    }
+
+}
+
+interface PostcodeMap {
+    [key: string]: number;
 }

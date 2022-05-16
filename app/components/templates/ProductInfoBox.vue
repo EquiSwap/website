@@ -2,7 +2,10 @@
     <div class="box">
         <h1>{{ product.title }}</h1>
         <h2 class="meta">
-            {{ product.owner.displayName }}, Guildford<br>
+            Posted by {{ product.owner.smartName }}<template v-if="distance !== undefined">,
+            {{ distance | shortDecimal }} {{ 'mile' | pluralize(distance) }} away
+            </template>
+            <br>
             <small>Posted on {{ product.createdAt | date }} at {{ product.createdAt | time }}</small>
         </h2>
         <p>
@@ -19,6 +22,10 @@ export default {
         product: {
             type: Object,
             required: true
+        },
+        distance: {
+            type: Number,
+            required: false
         }
     }
 }

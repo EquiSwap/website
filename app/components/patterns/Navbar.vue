@@ -13,7 +13,7 @@
             </div>
 
             <template v-if="authenticated">
-                <a>Messages</a>
+                <nuxt-link to="/chat">Messages</nuxt-link>
                 <div class="button">
                     <nuxt-link to="/account/post"><Button>Create Listing</Button></nuxt-link>
                 </div>

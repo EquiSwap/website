@@ -37,7 +37,6 @@ export default {
     background-color: rgb(200, 200, 200);
     border-radius: 20px;
     clip-path: content-box;
-    object-fit: contain;
 
     display: inline-flex;
     justify-content: center;
@@ -52,6 +51,7 @@ export default {
         height: 100%;
         width: 100%;
         border-radius: 20px;
+        object-fit: contain;
     }
 
     &.large {

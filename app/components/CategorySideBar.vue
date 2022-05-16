@@ -40,6 +40,7 @@ h2 {
 
 p {
     font-size: 15px;
+    white-space: nowrap;
 }
 
 .container-box {

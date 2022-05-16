@@ -18,7 +18,12 @@ export default class SessionController {
     @Middleware(OnlyAuthorized)
     @Route(Method.GET, '/')
     public async index(ctx: Context): Promise<void> {
-        ctx.success({ user: ctx.user });
+        ctx.success({ user: {
+            ...wrap(ctx.user).toJSON(),
+            postcode: ctx.user.postcode,
+            county: ctx.user.county,
+            street: ctx.user.street,
+        } });
     }
 
     /**
@@ -106,7 +111,13 @@ export default class SessionController {
         );
 
         return ctx.success({
-            user: wrap(user).toJSON(),
+            message: `Welcome, ${user.smartName}`,
+            user: {
+                ...wrap(user).toJSON(),
+                postcode: user.postcode,
+                county: user.county,
+                street: user.street,
+            },
             authToken: session.token
         });
     }
@@ -118,6 +129,8 @@ export default class SessionController {
     @Middleware(Body())
     @Route(Method.POST, '/register')
     public async register(ctx: Context) : Promise<void> {
+        if (ctx.request.body.email) ctx.request.body.email = ctx.request.body.email.toLowerCase();
+
         // Get and validate the user details from the request body.
         const [validationStatus, requestPayload] = createValidator({
             username: {
@@ -125,7 +138,7 @@ export default class SessionController {
                 required: true,
                 minLength: 1,
                 maxLength: 20,
-                matches: /^([A-Za-z0-9_.]+)$/,
+                matches: /^([A-Za-z\d_.]+)$/,
             },
             email: {
                 type: 'string',

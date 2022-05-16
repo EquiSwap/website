@@ -1,8 +1,8 @@
 <template>
     <div class="mainContainer">
-        <ProfilePicture :target="user.profilePicture" />
+        <ProfilePicture class="userImage" :target="user.profilePicture" />
         <div class="sideContainer">
-            <h1><b>{{ user.displayName }}</b></h1>
+            <h1><b>{{ user.smartName }}</b></h1>
             <p>@{{ user.username }}</p>
         </div>
     </div>
@@ -25,6 +25,11 @@ export default {
     position: relative;
     width: 100%;
     gap: 10px;
+
+    .userImage {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
 
     .sideContainer {
         display: flex;

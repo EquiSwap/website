@@ -4,6 +4,7 @@ export interface IUser {
     email: string;
     profilePicture?: string;
     displayName?: string;
+    smartName?: string;
     dateOfBirth?: Date;
     postcode?: string;
     street?: string;
@@ -17,6 +18,7 @@ export class User implements IUser {
     readonly email: string;
     profilePicture?: string;
     displayName?: string;
+    smartName?: string;
     dateOfBirth?: Date;
     postcode?: string;
     street?: string;
@@ -29,6 +31,7 @@ export class User implements IUser {
         this.email = props.email;
         this.profilePicture = props.profilePicture;
         this.displayName = props.displayName;
+        this.smartName = props.smartName;
         this.dateOfBirth = props.dateOfBirth;
         this.postcode = props.postcode;
         this.street = props.street;
@@ -62,6 +65,7 @@ export const GuestUser: IUser = {
     email: "guest@equiswap.xyz",
     profilePicture: undefined,
     displayName: "Guest User",
+    smartName: "Guest User",
     dateOfBirth: undefined,
     postcode: undefined,
     street: undefined,

@@ -25,7 +25,8 @@ export default {
 
     async mounted() {
         try {
-            this.product = (await this.$axios.$get(`/v1/product/${this.$route.params.id}`)).payload;
+            const response = (await this.$axios.$get(`/v1/product/${this.$route.params.id}`)).payload;
+            this.product = response.product;
         } catch (ex) {
             await this.$router.replace('/');
             this.$toast.error('That product could not be found!');

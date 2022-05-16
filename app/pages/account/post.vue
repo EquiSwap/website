@@ -9,7 +9,7 @@
                         <br>
 
                         <template v-if="error">
-                            <p class="error">An error occurred.</p>
+                            <p class="error">{{ error }}</p>
                             <br>
                         </template>
 
@@ -80,7 +80,7 @@ export default {
 
     async mounted() {
         if (user.isAuthenticated) {
-            this.categories = (await this.$axios.$get('/v1/product/categories')).payload;
+            this.categories = (await this.$axios.$get('/v1/product/categories/list')).payload;
         }
     },
 

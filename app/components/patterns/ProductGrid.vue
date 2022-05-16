@@ -6,7 +6,8 @@
                        v-for="product in products">
                 <ProductCard
                     class="product-grid-card"
-                    :product="product" />
+                    :product="product"
+                    :distance="distances[product.id]" />
             </nuxt-link>
         </div>
         <p v-else>There are no products in this category.</p>
@@ -19,6 +20,10 @@ export default {
         products: {
             type: Array,
             required: true
+        },
+        distances: {
+            type: Object,
+            default: {}
         }
     }
 }

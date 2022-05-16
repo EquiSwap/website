@@ -13,4 +13,15 @@ export default () => {
             minute: '2-digit'
         });
     });
+
+    Vue.filter('shortDecimal', (value) => {
+        if (isNaN(value)) return '';
+        return Math.round(value);
+    });
+
+    Vue.filter('pluralize', (value, amount) => {
+        if (!value) return '';
+        if (isNaN(amount)) return value;
+        return value + (Math.round(amount) !== 1 ? 's' : '')
+    })
 }

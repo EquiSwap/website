@@ -4,7 +4,7 @@
             <div class="categories-card">
                 <CategorySideBar :activeCategory="activeCategory" :categories="categories" />
                 <template v-if="activeCategory">
-                    <ProductGrid class="product-grid" :products="products" />
+                    <ProductGrid class="product-grid" :products="products" :distances="distances" />
                 </template>
                 <template v-else>
                     <div class="mt-20">
@@ -17,15 +17,20 @@
 </template>
 
 <script>
+import {user} from "@/utils/store-accessor";
+
 export default {
 
     data: () => ({
         activeCategory: undefined,
-        categories: undefined
+        categories: undefined,
+        distances: undefined,
     }),
 
     async mounted() {
-        this.categories = (await this.$axios.$get('/v1/product/categories')).payload;
+        const { categories, distances } = (await this.$axios.$get('/v1/product/categories', user.requestConfig)).payload;
+        this.categories = categories;
+        this.distances = distances;
         this.activeCategory = this.$route.params.category;
     },
 
