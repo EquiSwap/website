@@ -11,7 +11,7 @@
                             <p>No conversation selected...</p>
                         </div>
                     </div>
-                    <ChatInputBar v-if="activeConversation" @message="sendMessage" />
+                    <ChatInputBar v-if="activeConversation" @message="sendMessage" @typing="signalTyping" />
                 </div>
             </div>
         </FullPageCard>
@@ -20,7 +20,7 @@
 
 <script>
 import { user } from "@/utils/store-accessor";
-import {addSocketListener, removeSocketListener, sendChatMessage} from "@/realtime/chat";
+import {addSocketListener, removeSocketListener, sendChatMessage, signalTyping} from "@/realtime/chat";
 
 export default {
 
@@ -50,7 +50,9 @@ export default {
                         ? data.payload.author
                         : data.payload.target;
 
+                    this.conversations[otherEntity].summary = data.payload.message;
                     this.conversations[otherEntity].messages.unshift(data.payload);
+                    this.authors.sort((a, b) => a.id === otherEntity ? -1 : b.id === otherEntity ? 1 : 0);
                 }
             } catch(ex) {
                 console.error(ex);
@@ -89,6 +91,10 @@ export default {
             if (this.activeConversation) {
                 sendChatMessage(this.activeConversation, message);
             }
+        },
+
+        signalTyping () {
+            if (this.activeConversation) signalTyping(this.activeConversation);
         }
     }
 

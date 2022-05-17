@@ -22,6 +22,24 @@ export function sendChatMessage(to: string, message: string) {
     }));
 }
 
+export function sendProductMessage(to: string, productId: string) {
+    socket?.send(JSON.stringify({
+        command: 'message',
+        to,
+        payload: {
+            type: 'product',
+            message: productId
+        }
+    }));
+}
+
+export function signalTyping(to: string) {
+    // socket?.send(JSON.stringify({
+    //     command: 'typing',
+    //     to
+    // }));
+}
+
 export function addSocketListener(listener: any, shadow: boolean = false) {
     socket?.addEventListener('message', listener);
     if (!shadow) listenerCount++;

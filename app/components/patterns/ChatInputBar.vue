@@ -1,7 +1,7 @@
 <template>
     <div class="chat-input-bar">
         <form @submit.prevent="submit">
-            <input v-model="message" type="text" placeholder="Enter a message..." class="message-input">
+            <input ref="inputBox" v-model="message" type="text" placeholder="Enter a message..." class="message-input">
             <button @click.prevent="submit" class="message-button" type="submit">
                 <Icon of="send" />
             </button>
@@ -21,6 +21,12 @@ export default {
             this.$emit('message', this.message);
             this.message = undefined;
         }
+    },
+
+    mounted() {
+        this.$refs.inputBox.addEventListener('keydown', (event) => {
+            this.$emit('typing');
+        });
     }
 
 }

@@ -1,12 +1,12 @@
 <template>
     <div class="chat-bubble-wrapper" :class="{ self: isCurrentUser }">
         <template v-if="isCurrentUser">
-            <p class="chat-bubble">{{ message.trim() }}</p>
+            <ChatBubbleContent :message="message" :type="type" :isCurrentUser="isCurrentUser" />
             <ProfilePicture small :target="author.profilePicture" />
         </template>
         <template v-else>
             <ProfilePicture small :target="author.profilePicture" />
-            <p class="chat-bubble">{{ message.trim() }}</p>
+            <ChatBubbleContent :message="message" :type="type" :isCurrentUser="isCurrentUser" />
         </template>
     </div>
 </template>
@@ -17,6 +17,10 @@ import { user } from "@/utils/store-accessor";
 export default {
     props: {
         message: {
+            type: String,
+            required: true
+        },
+        type: {
             type: String,
             required: true
         },
@@ -44,19 +48,6 @@ export default {
 
     &.self {
         justify-content: flex-end;
-    }
-
-    .chat-bubble {
-        display: block;
-        max-width: 40%;
-        padding: 10px 15px;
-        border-radius: 9px;
-        background-color: #F4F4F4;
-    }
-
-    &.self .chat-bubble {
-        background-color: var(--color);
-        color: white;
     }
 }
 </style>

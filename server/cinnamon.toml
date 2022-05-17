@@ -21,7 +21,7 @@
 
         # Whether HTTP requests should be logged by the framework.
         # Ignored for HTTP status codes >= 500 (meaning server errors are always logged).
-        enable_logging = true
+        enable_logging = false
 
     # Framework Database Settings.
     # Optional. If not specified, the database module will not be initialized. If it is specified, it must contain

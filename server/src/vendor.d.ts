@@ -12,4 +12,8 @@ declare module '@apollosoftwarexyz/cinnamon' {
 
 interface EquiSocket extends WebSocket {
     user?: User;
+    typing?: {
+        until: number;
+        to: string;
+    }
 }

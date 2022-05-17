@@ -3,6 +3,7 @@
         <ChatBubble
             :key="message.id"
             v-for="message in messages"
+            :type="message.type"
             :message="message.message"
             :author="getAuthor(message.author)" />
         <div class="status">

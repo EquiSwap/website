@@ -6,7 +6,7 @@
                     <div class="inline">
                         <nuxt-link :to="`/offer/${product.id}`"><Button>Make an Offer</Button></nuxt-link>
                         <p>&mdash; OR &mdash;</p>
-                        <nuxt-link to="/chat"><Button>Start a Chat</Button></nuxt-link>
+                        <Button @click.native.prevent="startChat">Start a Chat</Button>
                     </div>
                 </ProductInfoBox>
                 <ProductPicture large class="image" :target="product.image" />
@@ -18,6 +18,7 @@
 
 <script>
 import {user} from "@/utils/store-accessor";
+import {sendProductMessage} from "@/realtime/chat";
 
 export default {
 
@@ -34,6 +35,13 @@ export default {
         } catch(ex) {
             await this.$router.replace('/');
             this.$toast.error('That product could not be found!');
+        }
+    },
+
+    methods: {
+        async startChat () {
+            sendProductMessage(this.product.owner.id, this.product.id);
+            await this.$router.push('/chat');
         }
     }
 

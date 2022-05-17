@@ -54,7 +54,11 @@ export default class ChatController {
         });
 
         Object.keys(conversations).forEach(conversation => {
-            conversations[conversation].summary = conversations[conversation].messages[0].message;
+            const initialMessage = conversations[conversation].messages[0];
+
+            conversations[conversation].summary = conversations[conversation].messages[0].type === 'chat'
+                ? initialMessage.message
+                : `${initialMessage.author === ctx.user!.id ? 'You' : authors.find($author => $author.id === initialMessage.author)} sent a ${initialMessage.type}.`;
         });
 
         return ctx.success({ conversations, authors });

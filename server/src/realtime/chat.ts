@@ -48,7 +48,7 @@ export class WebSocketHandler {
         }
 
         socket.on('message', async (message: string) => {
-            let data;
+            let data: any;
             try { data = JSON.parse(message); } catch (ex) { return; }
 
             if (data.command === 'auth') {
@@ -75,10 +75,24 @@ export class WebSocketHandler {
                 // Chat message
                 case 'message': {
                     const message = new ChatMessage(data.payload.message, {
+                        type: data.payload.type ?? 'chat',
                         author: currentUser!,
                         target: entityManager!.getReference(User, data.to)!
                     });
                     await messageRepo.persistAndFlush(message);
+
+                    // Clear typing status.
+                    {
+                        let foundSocket;
+                        if (socket.typing?.to && (foundSocket = this.connectedSockets.find(socket => socket.user != null && socket.user.id === socket.typing!.to))) {
+                            foundSocket.send(JSON.stringify({
+                                command: 'typing',
+                                from: socket.user!.id,
+                                until: 0
+                            }));
+                        }
+                    }
+                    socket.typing = undefined;
 
                     for (const socket of this.connectedSockets) {
                         // If the socket has a user involved in the conversation, relay the message object.
@@ -98,6 +112,41 @@ export class WebSocketHandler {
                         }
                     }
 
+                    break;
+                }
+                case 'typing': {
+                    // if there is another three seconds of 'typing time' left for this user, do not send
+                    // the typing payload.
+                    if (socket.typing && (socket.typing.until <= (new Date().getTime()) + 3000)) {
+                        return;
+                    }
+
+                    // check if the user they are typing to is online.
+                    let foundSocket;
+                    if ((foundSocket = this.connectedSockets.find(socket => socket.user != null && socket.user?.id === data.to))) {
+                        // if this was to signal they've stopped typing, reflect as such
+                        if (data.clear) {
+                            foundSocket.send(JSON.stringify({
+                                command: 'typing',
+                                from: socket.user!.id,
+                                until: 0
+                            }));
+                            return;
+                        }
+
+                        // if they are, mark as typing to that user for 5 seconds.
+                        socket.typing = {
+                            until: (new Date().getTime()) + 5000,
+                            to: data.to
+                        };
+
+                        // then signal to that user that this current user is typing.
+                        foundSocket.send(JSON.stringify({
+                            command: data.command,
+                            from: socket.user!.id,
+                            until: socket.typing.until
+                        }));
+                    }
                     break;
                 }
                 default:
