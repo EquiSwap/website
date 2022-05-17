@@ -21,8 +21,8 @@ export class Product extends TrackedBaseEntity {
     @ManyToOne({ nullable: false })
     category!: ProductCategory;
 
-    @Property({ nullable: true })
-    willTradeFor: Collection<ProductCategory> = new Collection<ProductCategory>(this);
+    @Property({ nullable: true, lazy: true })
+    willTradeFor?: Collection<ProductCategory>; // = new Collection<ProductCategory>(this);
 
     @ManyToOne({ nullable: true })
     owner!: User;

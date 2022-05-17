@@ -118,7 +118,7 @@ export default class ProductController {
             description,
             image: '/v0/images/pending.png',
             category,
-            owner: ctx.user!
+            owner: ctx.getEntityManager()!.getReference(User, ctx.user!.id)
         });
         await productRepo.persistAndFlush(product);
 
