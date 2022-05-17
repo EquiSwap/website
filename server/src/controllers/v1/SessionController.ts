@@ -20,9 +20,9 @@ export default class SessionController {
     public async index(ctx: Context): Promise<void> {
         ctx.success({ user: {
             ...wrap(ctx.user).toJSON(),
-            postcode: ctx.user.postcode,
-            county: ctx.user.county,
-            street: ctx.user.street,
+            postcode: ctx.user!.postcode,
+            county: ctx.user!.county,
+            street: ctx.user!.street,
         } });
     }
 
@@ -34,7 +34,7 @@ export default class SessionController {
     @Route(Method.DELETE, '/logout')
     public async logout(ctx: Context): Promise<void> {
         const sessionRepo = ctx.getEntityManager()!.getRepository(Session);
-        await sessionRepo.removeAndFlush(ctx.session);
+        await sessionRepo.removeAndFlush(ctx.session!);
         ctx.success();
     }
 

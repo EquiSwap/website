@@ -2,10 +2,10 @@
     <div class="chat-bubble-wrapper" :class="{ self: isCurrentUser }">
         <template v-if="isCurrentUser">
             <p class="chat-bubble">{{ message.trim() }}</p>
-            <ProfilePicture small />
+            <ProfilePicture small :target="author.profilePicture" />
         </template>
         <template v-else>
-            <ProfilePicture small />
+            <ProfilePicture small :target="author.profilePicture" />
             <p class="chat-bubble">{{ message.trim() }}</p>
         </template>
     </div>

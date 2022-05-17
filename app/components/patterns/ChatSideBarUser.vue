@@ -1,9 +1,9 @@
 <template>
     <div class="chat-sidebar-user" :class="{ active }">
-        <ProfilePicture class="user-image" />
+        <ProfilePicture class="user-image" :target="user.profilePicture" />
         <div class="user">
-            <h2>User Name</h2>
-            <p>Most recent message.</p>
+            <h2>{{ user.smartName }}</h2>
+            <p v-if="summary">{{ summary }}</p>
         </div>
     </div>
 </template>
@@ -20,6 +20,8 @@
     -webkit-user-select: none !important;
     cursor: pointer !important;
 
+    transition: background-color .1s ease-out, color .1s ease-out;
+
     &.active {
         background-color: var(--color);
         color: white;
@@ -28,15 +30,24 @@
     .user-image {
         width: 48px;
         height: 48px;
+        flex-shrink: 0;
     }
 
     .user {
+        overflow: hidden;
         margin-left: 20px;
 
         h2 { font-weight: bold; }
         p { font-size: 10pt; }
 
-        h2, p { margin: 0; line-height: 1; }
+        h2, p {
+            margin: 0;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            text-overflow: ellipsis;
+        }
     }
 }
 </style>
@@ -47,6 +58,9 @@ export default {
         user: {
             type: Object,
             required: true
+        },
+        summary: {
+            type: String,
         },
         active: {
             type: Boolean,

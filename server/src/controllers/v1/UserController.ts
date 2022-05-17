@@ -38,11 +38,11 @@ export default class UserController {
         }
 
         const imageData = Buffer.from(encodedImageData, 'base64');
-        await writeFile('static/v0/images/users', ctx.user.id, extension, imageData);
+        await writeFile('static/v0/images/users', ctx.user!.id, extension, imageData);
 
         const userRepo = ctx.getEntityManager()!.getRepository(User);
-        ctx.user.profilePicture = `/v0/images/users/${ctx.user.id}.${extension}`;
-        await userRepo.persistAndFlush(ctx.user);
+        ctx.user!.profilePicture = `/v0/images/users/${ctx.user!.id}.${extension}`;
+        await userRepo.persistAndFlush(ctx.user!);
 
         return ctx.success({
             profilePicture,
@@ -101,14 +101,14 @@ export default class UserController {
         } = requestPayload;
 
         const userRepo = ctx.getEntityManager()!.getRepository(User);
-        ctx.user.displayName = displayName;
-        ctx.user.email = email;
+        ctx.user!.displayName = displayName;
+        ctx.user!.email = email;
 
-        ctx.user.street = street;
-        ctx.user.county = county;
-        ctx.user.postcode = postcode;
-        ctx.user.country = country;
-        await userRepo.persistAndFlush(ctx.user);
+        ctx.user!.street = street;
+        ctx.user!.county = county;
+        ctx.user!.postcode = postcode;
+        ctx.user!.country = country;
+        await userRepo.persistAndFlush(ctx.user!);
 
         ctx.success({
             user: ctx.user,
@@ -120,7 +120,7 @@ export default class UserController {
     @Route(Method.DELETE, '/delete')
     public async deleteAccount(ctx: Context) : Promise<void> {
         const userRepo = ctx.getEntityManager()!.getRepository(User);
-        await userRepo.removeAndFlush(ctx.user);
+        await userRepo.removeAndFlush(ctx.user!);
 
         ctx.success({
             message: 'You have been signed out and your account has been deleted.'

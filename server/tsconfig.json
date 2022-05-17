@@ -1,16 +1,13 @@
 {
-    "declaration": true,
-    "target": "ESNext",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "outDir": "./dist",
-    "strict": true,
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
     "include": [
         "src/**/*"
     ],
     "compilerOptions": {
+        "outDir": "./dist",
+        "strict": true,
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "target": "ESNext",
         "experimentalDecorators": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true

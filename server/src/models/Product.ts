@@ -6,6 +6,9 @@ import { ProductCategory } from './ProductCategory';
 @Entity({ tableName: 'products' })
 export class Product extends TrackedBaseEntity {
 
+    @Property({ nullable: false, default: true })
+    active!: boolean;
+
     @Property({ nullable: false })
     title!: string;
 
@@ -19,9 +22,9 @@ export class Product extends TrackedBaseEntity {
     category!: ProductCategory;
 
     @Property({ nullable: true })
-    willTradeFor: Collection<ProductCategory>;
+    willTradeFor: Collection<ProductCategory> = new Collection<ProductCategory>(this);
 
-    @ManyToOne({ nullable: false })
+    @ManyToOne({ nullable: true })
     owner!: User;
 
     constructor(props: {

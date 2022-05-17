@@ -25,6 +25,12 @@ input {
 }
 
 .equiSwap-toast {
+    font-family: 'DM Sans', sans-serif !important;
+
+    &.Vue-Toastification__toast--default.chat-message-toast {
+        background: white;
+    }
+
     &.Vue-Toastification__toast--success {
         background: var(--color-dark);
     }

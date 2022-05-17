@@ -2,7 +2,7 @@
     <div class="chat-input-bar">
         <form @submit.prevent="submit">
             <input v-model="message" type="text" placeholder="Enter a message..." class="message-input">
-            <button @click.native.prevent="submit" class="message-button" type="submit">
+            <button @click.prevent="submit" class="message-button" type="submit">
                 <Icon of="send" />
             </button>
         </form>

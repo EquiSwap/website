@@ -1,7 +1,10 @@
 <template>
     <div class="chat-messages-wrapper">
-        <ChatBubble v-for="i in 20" message="Howdy" :author="{}" />
-        <ChatBubble message="Hello, world!" :author="author" />
+        <ChatBubble
+            :key="message.id"
+            v-for="message in messages"
+            :message="message.message"
+            :author="getAuthor(message.author)" />
         <div class="status">
             <Icon of="chat" />
             <p>This is the start of your message history.</p>
@@ -13,9 +16,29 @@
 import {user} from "@/utils/store-accessor";
 
 export default {
+    props: {
+        messages: {
+            type: Array,
+            required: true
+        },
+        authors: {
+            type: Array,
+            required: true
+        }
+    },
+
     computed: {
-        author () {
-            return user.cache;
+        sortedMessages () {
+            return this.messages.sort((a, b) => {
+                return new Date(b.createdAt) - new Date(a.createdAt)
+            });
+        }
+    },
+
+    methods: {
+        getAuthor (id) {
+            if (user.cache.id === id) return user.cache;
+            return this.authors.find(author => author.id === id);
         }
     }
 }
@@ -50,5 +73,9 @@ export default {
     padding: 40px 0 20px;
     text-align: center;
     color: #b9b9b9;
+
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    cursor: default !important;
 }
 </style>

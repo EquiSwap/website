@@ -5,7 +5,7 @@ export default class IndexController {
 
     @Route(Method.GET, '/')
     public async index(ctx: Context) : Promise<void> {
-        if (Cinnamon.defaultInstance.inDevMode) {
+        if (Cinnamon.defaultInstance!.inDevMode) {
             return ctx.success({
                 development: true
             });

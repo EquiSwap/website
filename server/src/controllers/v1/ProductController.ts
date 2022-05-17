@@ -3,7 +3,7 @@ import {ProductCategory} from '../../models/ProductCategory';
 import {MaybeAuthorized, OnlyAuthorized} from '../../middlewares/Authorization';
 import {createValidator} from '@apollosoftwarexyz/cinnamon-validator';
 import {Product} from '../../models/Product';
-import {distance, unique, writeFile} from '../../utils';
+import {distance, Location, unique, writeFile} from '../../utils';
 import axios from 'axios';
 import {User} from '../../models/User';
 
@@ -19,8 +19,8 @@ export default class ProductController {
         });
 
         const distances = await this.augmentProductDistances(
-            ctx.user,
-            categories.map(category => category.products.getItems().map(product => ({
+            ctx.user!,
+            categories.map((category: ProductCategory) => category.products.getItems().map((product: Product) => ({
                 id: product.id,
                 postcode: product.owner.postcode,
             }))).flat()
@@ -118,7 +118,7 @@ export default class ProductController {
             description,
             image: '/v0/images/pending.png',
             category,
-            owner: ctx.user
+            owner: ctx.user!
         });
         await productRepo.persistAndFlush(product);
 
@@ -140,7 +140,7 @@ export default class ProductController {
     public async product(ctx: Context) : Promise<void> {
         // If the ID is not a UUID, return a 404 immediately.
         if (ctx.params.id.length != 36) {
-            return ctx.error(404, 'ERR_NOT_FOUND', 'The requested product could not be found.');
+            return ctx.error(400, 'ERR_NOT_FOUND', 'The requested product could not be found.');
         }
 
         const productRepo = ctx.getEntityManager()!.getRepository(Product);
@@ -149,10 +149,10 @@ export default class ProductController {
         });
 
         if (!product) {
-            return ctx.error(404, 'ERR_NOT_FOUND', 'The requested product could not be found.');
+            return ctx.error(400, 'ERR_NOT_FOUND', 'The requested product could not be found.');
         }
 
-        const distance = Math.round((await this.augmentProductDistances(ctx.user, [{
+        const distance = Math.round((await this.augmentProductDistances(ctx.user!, [{
             id: product.id,
             postcode: product.owner.postcode
         }]))[product.id]);
@@ -162,14 +162,16 @@ export default class ProductController {
 
     private async augmentProductDistances(relativeTo: User, products: {
         id: string;
-        postcode: string;
+        postcode?: string;
     }[]) : Promise<PostcodeMap> {
         if (!relativeTo) return {};
 
         const relativeToPostcode = relativeTo.postcode;
         if (!relativeToPostcode) return {};
 
-        const locations = {};
+        const locations: {
+            [key: string]: Location
+        } = {};
         const locationData = (await axios.post('https://api.postcodes.io/postcodes', {
             postcodes: unique([
                 relativeToPostcode,
@@ -177,7 +179,7 @@ export default class ProductController {
             ])
         })).data.result;
 
-        locationData.forEach((location) => {
+        locationData.forEach((location: any) => {
             locations[location.query] = ({
                 longitude: location.result.longitude,
                 latitude: location.result.latitude
@@ -186,14 +188,18 @@ export default class ProductController {
 
         if (!locations[relativeToPostcode]) return {};
 
-        const distances = {};
+        const distances: {
+            [key: string]: number;
+        } = {};
         for (const query in locations) {
             distances[query] = distance(locations[relativeToPostcode], locations[query]);
         }
 
-        const postcodeMap = {};
-        products.forEach(product => {
-            postcodeMap[product.id] = Math.round(distances[product.postcode]);
+        const postcodeMap: {
+            [key: string]: number;
+        } = {};
+        products.filter(product => product.postcode).forEach(product => {
+            postcodeMap[product.id] = Math.round(distances[product.postcode!]);
         });
         return postcodeMap;
     }

@@ -1,6 +1,6 @@
-import {Collection, Entity, OneToMany, Property} from '@mikro-orm/core';
+import {Cascade, Collection, Entity, OneToMany, Property} from '@mikro-orm/core';
 import { TrackedBaseEntity } from './BaseEntity';
-import {Product} from './Product';
+import { Product } from './Product';
 
 @Entity({ tableName: 'users' })
 export class User extends TrackedBaseEntity {
@@ -40,7 +40,7 @@ export class User extends TrackedBaseEntity {
     @Property()
     country?: string;
 
-    @OneToMany(() => Product, product => product.owner)
+    @OneToMany(() => Product, product => product.owner, { cascade: [ Cascade.PERSIST ] })
     products: Collection<Product> = new Collection<Product>(this);
 
     constructor(fields: {
